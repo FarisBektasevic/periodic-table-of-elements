@@ -9,6 +9,7 @@ import { url } from './config.js';
 
 const main = document.querySelector('.main');
 console.log(main);
+console.log('main');
 
 // fetch data and adding positions (xpos and ypos for every element)
 const controllPeriodicTableData = async () => {
