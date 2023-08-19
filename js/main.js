@@ -8,8 +8,12 @@ import { getData } from './helper.js';
 import { url } from './config.js';
 
 const main = document.querySelector('.main');
-console.log(main);
-console.log('main');
+const periodicTable = document.querySelector('.periodic-table');
+const spinner = document.querySelector('.rotate');
+console.log(spinner);
+
+// console.log(periodicTable);
+// console.log('periodicTable');
 
 // fetch data and adding positions (xpos and ypos for every element)
 const controllPeriodicTableData = async () => {
@@ -20,9 +24,12 @@ const controllPeriodicTableData = async () => {
 // adding div for each element in periodic table
 // adding groups and periods numbers before each
 const controllPeriodicTableView = () => {
-  renderPeriodicTable(main, state.elements);
-  renderPeriodNames(main, state.periods);
-  renderGroupNames(main, state.groups, state.elements);
+  spinner.classList.add('invisible');
+  periodicTable.classList.remove('invisible');
+
+  renderPeriodicTable(periodicTable, state.elements);
+  renderPeriodNames(periodicTable, state.periods);
+  renderGroupNames(periodicTable, state.groups, state.elements);
 };
 
 console.time('everything');
@@ -31,6 +38,8 @@ await controllPeriodicTableData();
 controllPeriodicTableView();
 
 console.timeEnd('everything');
+
+console.log(periodicTable);
 
 // EVENT LISTENER FOR EACH ELEMENT CARD
 // console.log === ELEMENT OBJECT

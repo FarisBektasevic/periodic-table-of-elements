@@ -14,9 +14,11 @@
 body {
   font-family: 'Roboto', sans-serif;
   height: 100vh;
+  width: 100vw;
   display: flex;
-  align-content: center;
+  flex-direction: row;
   justify-content: center;
+  align-items: center;
   font-size: 10px;
   color: #fff;
   background-color: #20252b;
@@ -24,7 +26,29 @@ body {
   letter-spacing: 0.05em;
 }
 
+.rotate {
+  display: flex;
+  animation: rotation 2s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
 .main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.periodic-table {
   height: 100%;
   display: grid;
   grid-template-columns: repeat(19, 66px);
@@ -34,6 +58,10 @@ body {
   overflow-x: auto;
   overflow-y: auto;
   white-space: nowrap;
+}
+
+.invisible {
+  display: none;
 }
 
 .element-card {

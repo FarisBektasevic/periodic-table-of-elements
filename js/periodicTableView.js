@@ -31,6 +31,10 @@ const generateGroupNameMarkup = (group, ypos) => {
     </div>`;
 };
 
+export const deleteSpinner = parentElement => {
+  parentElement.innerHTML = '';
+};
+
 export const renderPeriodicTable = (parentElement, elements) => {
   parentElement.innerHTML += elements.map(generateElementCardMarkup).join('');
 };
