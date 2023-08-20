@@ -26,6 +26,8 @@ body {
   letter-spacing: 0.05em;
 }
 
+/* ------ SPINNER -------------*/
+
 .rotate {
   display: flex;
   animation: rotation 2s infinite linear;
@@ -48,6 +50,8 @@ body {
   align-items: center;
 }
 
+/*----------  */
+
 .periodic-table {
   height: 100%;
   display: grid;
@@ -63,7 +67,6 @@ body {
 .invisible {
   display: none;
 }
-
 .element-card {
   display: flex;
   flex-direction: column;
@@ -112,4 +115,42 @@ body {
 .group-label {
   justify-content: center;
   align-items: flex-end;
+}
+
+.group-blocks-list {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  font-size: 14px;
+  height: 150px;
+  grid-column: 4;
+  grid-row: 2;
+  margin-left: 30px;
+
+  list-style-type: none;
+  letter-spacing: 1px;
+}
+
+.list-item {
+  margin: 0 70px 15px 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.list-item p {
+  margin-left: 10px;
+}
+
+.btn {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid;
+  /* border-color: inherit; */
+  background-color: inherit;
+}
+
+.btn:active {
+  background-color: #fff;
 }

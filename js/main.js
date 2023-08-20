@@ -1,19 +1,18 @@
 import { state, addElementPositions } from './model.js';
 import {
+  renderGroupBlocksList,
   renderPeriodNames,
   renderGroupNames,
   renderPeriodicTable,
 } from './periodicTableView.js';
 import { getData } from './helper.js';
 import { url } from './config.js';
+import { groupBlockColors } from './config.js';
 
 const main = document.querySelector('.main');
 const periodicTable = document.querySelector('.periodic-table');
 const spinner = document.querySelector('.rotate');
-console.log(spinner);
-
-// console.log(periodicTable);
-// console.log('periodicTable');
+const groupBlocksList = document.querySelector('.group-blocks-list');
 
 // fetch data and adding positions (xpos and ypos for every element)
 const controllPeriodicTableData = async () => {
@@ -27,19 +26,16 @@ const controllPeriodicTableView = () => {
   spinner.classList.add('invisible');
   periodicTable.classList.remove('invisible');
 
+  renderGroupBlocksList(groupBlocksList, Object.entries(groupBlockColors));
+
   renderPeriodicTable(periodicTable, state.elements);
   renderPeriodNames(periodicTable, state.periods);
   renderGroupNames(periodicTable, state.groups, state.elements);
 };
 
-console.time('everything');
-
 await controllPeriodicTableData();
+
 controllPeriodicTableView();
-
-console.timeEnd('everything');
-
-console.log(periodicTable);
 
 // EVENT LISTENER FOR EACH ELEMENT CARD
 // console.log === ELEMENT OBJECT

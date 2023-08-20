@@ -31,8 +31,12 @@ const generateGroupNameMarkup = (group, ypos) => {
     </div>`;
 };
 
-export const deleteSpinner = parentElement => {
-  parentElement.innerHTML = '';
+const generateGroupBlocksListMarkup = (name, color) => {
+  return `
+  <li class="list-item" >
+    <div class="btn" style="border-color: ${color}"></div>
+    <p>${name}</p>
+  </li>`;
 };
 
 export const renderPeriodicTable = (parentElement, elements) => {
@@ -50,6 +54,16 @@ export const renderGroupNames = (parentElement, groups, elements) => {
       const ypos = firstElementInGroup.ypos;
 
       return generateGroupNameMarkup(group, ypos);
+    })
+    .join('');
+};
+
+export const renderGroupBlocksList = (parentElement, groupBlocks) => {
+  parentElement.innerHTML = groupBlocks
+    .map(block => {
+      const name = block[0][0].toUpperCase() + block[0].slice(1);
+      const color = block[1];
+      return generateGroupBlocksListMarkup(name, color);
     })
     .join('');
 };

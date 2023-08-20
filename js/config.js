@@ -12,4 +12,5 @@ export const groupBlockColors = {
   metalloid: '#C41E3D',
   actinoid: '#52713F',
   lanthanoid: '#D84A05',
+  'all items': '#fff',
 };
