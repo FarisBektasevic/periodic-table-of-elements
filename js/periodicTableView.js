@@ -2,11 +2,13 @@ import { groupBlockColors } from './config.js';
 
 const generateElementCardMarkup = element => {
   return `
-    <div class="element-card" id="${element.symbol}" style="grid-column:${
-    element.xpos + 1
-  }; grid-row:${element.ypos + 1}; border-color:${
-    groupBlockColors[element.groupBlock]
-  }">
+    <div data-category="${element.groupBlock
+      .split(' ')
+      .join('-')}" class="element-card" id="${
+    element.symbol
+  }" style="grid-column:${element.xpos + 1}; grid-row:${
+    element.ypos + 1
+  }; border-color:${groupBlockColors[element.groupBlock]}">
       <span>${element.atomicNumber}</span>
       <span class="element-card--symbol">${element.symbol}</span>
       <p>${element.name}</p>
@@ -33,10 +35,10 @@ const generateGroupNameMarkup = (group, ypos) => {
 
 const generateGroupBlocksListMarkup = (name, color) => {
   return `
-  <li class="list-item" >
+  <div data-category="${name.toLowerCase()}" class="list-item" >
     <div class="btn" style="border-color: ${color}"></div>
     <p>${name}</p>
-  </li>`;
+  </div>`;
 };
 
 export const renderPeriodicTable = (parentElement, elements) => {

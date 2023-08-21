@@ -13,6 +13,7 @@ const main = document.querySelector('.main');
 const periodicTable = document.querySelector('.periodic-table');
 const spinner = document.querySelector('.rotate');
 const groupBlocksList = document.querySelector('.group-blocks-list');
+// const listItems = document.querySelectorAll('.list-item');
 
 // fetch data and adding positions (xpos and ypos for every element)
 const controllPeriodicTableData = async () => {
@@ -37,8 +38,7 @@ await controllPeriodicTableData();
 
 controllPeriodicTableView();
 
-// EVENT LISTENER FOR EACH ELEMENT CARD
-// console.log === ELEMENT OBJECT
+// EVENT LISTENERs
 
 main.addEventListener('click', event => {
   event.preventDefault();
@@ -46,4 +46,20 @@ main.addEventListener('click', event => {
   const card = event.target.closest('.element-card');
   if (!card) return;
   console.log(state.elements.find(element => element.symbol === card.id));
+});
+
+main.addEventListener('click', e => {
+  e.preventDefault();
+
+  const listItem = e.target.closest('.list-item');
+  if (!listItem) return;
+
+  const buttons = document.querySelectorAll('.btn');
+  buttons.forEach(btn => {
+    btn.style.removeProperty('background-color');
+  });
+
+  listItem.children[0].style.backgroundColor =
+    listItem.children[0].style.borderColor;
+  // groupBlockColors[listItem.getAttribute('data-category')];
 });
