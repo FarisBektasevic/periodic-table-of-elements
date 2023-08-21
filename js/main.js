@@ -38,7 +38,7 @@ await controllPeriodicTableData();
 
 controllPeriodicTableView();
 
-// EVENT LISTENERs
+// EVENT LISTENERS
 
 main.addEventListener('click', event => {
   event.preventDefault();
@@ -61,5 +61,21 @@ main.addEventListener('click', e => {
 
   listItem.children[0].style.backgroundColor =
     listItem.children[0].style.borderColor;
-  // groupBlockColors[listItem.getAttribute('data-category')];
+
+  const tableCards = document.querySelectorAll('.element-card');
+
+  Array.from(tableCards).forEach(element => {
+    element.classList.remove('element-card-shadow');
+    element.style.borderColor =
+      groupBlockColors[element.getAttribute('data-category')];
+
+    if (
+      element.getAttribute('data-category') !==
+        listItem.getAttribute('data-category') &&
+      listItem.getAttribute('data-category') !== 'all items'
+    ) {
+      element.style.removeProperty('border-color');
+      element.classList.add('element-card-shadow');
+    }
+  });
 });

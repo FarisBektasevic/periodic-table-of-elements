@@ -72,11 +72,15 @@ body {
   flex-direction: column;
   justify-content: space-around;
   border-bottom: 2px solid;
-  border-color: #ff8600;
   padding: 2px;
-
+  transition: 0.4s ease-in;
   font-weight: 500;
   cursor: pointer;
+  border-color: #4b4f53;
+}
+
+.element-card-shadow {
+  color: #4b4f53;
 }
 
 .element-card p {
@@ -89,7 +93,6 @@ body {
 
 .element-card:hover {
   background-color: #31343d;
-  transition: 0.3s;
   scale: 1.026;
 }
 
@@ -147,6 +150,7 @@ body {
   border-radius: 50%;
   border: 2px solid;
   border-color: inherit;
+  transition: 0.3s;
 }
 
 .btn-selected {

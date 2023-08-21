@@ -2,9 +2,7 @@ import { groupBlockColors } from './config.js';
 
 const generateElementCardMarkup = element => {
   return `
-    <div data-category="${element.groupBlock
-      .split(' ')
-      .join('-')}" class="element-card" id="${
+    <div data-category="${element.groupBlock}" class="element-card" id="${
     element.symbol
   }" style="grid-column:${element.xpos + 1}; grid-row:${
     element.ypos + 1
