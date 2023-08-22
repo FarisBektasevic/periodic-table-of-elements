@@ -34,7 +34,9 @@ const generateGroupNameMarkup = (group, ypos) => {
 const generateGroupBlocksListMarkup = (name, color) => {
   return `
   <div data-category="${name.toLowerCase()}" class="list-item" >
-    <div class="btn" style="border-color: ${color}"></div>
+    <div class="btn" style="border-color: ${color}; background-color:${
+    name === 'All items' ? '#fff' : ''
+  }"></div>
     <p>${name}</p>
   </div>`;
 };
