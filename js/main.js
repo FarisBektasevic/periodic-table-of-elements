@@ -15,6 +15,7 @@ const spinner = document.querySelector('.rotate');
 const groupBlocksList = document.querySelector('.group-blocks-list');
 // const listItems = document.querySelectorAll('.list-item');
 
+const sidebar = document.querySelector('.sidebar');
 // fetch data and adding positions (xpos and ypos for every element)
 const controllPeriodicTableData = async () => {
   state.elements = await getData(url);
@@ -35,7 +36,6 @@ const controllPeriodicTableView = () => {
 };
 
 await controllPeriodicTableData();
-
 controllPeriodicTableView();
 
 // EVENT LISTENERS
@@ -45,6 +45,9 @@ main.addEventListener('click', event => {
 
   const card = event.target.closest('.element-card');
   if (!card) return;
+  console.log(sidebar);
+  sidebar.classList.remove('invisible');
+  sidebar.classList.add('sidebar-active');
   console.log(state.elements.find(element => element.symbol === card.id));
 });
 

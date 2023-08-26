@@ -22,7 +22,7 @@ body {
   font-size: 10px;
   color: #fff;
   background-color: #20252b;
-  padding: 20px 0;
+
   letter-spacing: 0.05em;
 }
 
@@ -48,6 +48,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 /*----------  */
@@ -64,9 +65,6 @@ body {
   white-space: nowrap;
 }
 
-.invisible {
-  display: none;
-}
 .element-card {
   display: flex;
   flex-direction: column;
@@ -155,4 +153,43 @@ body {
 
 .btn-selected {
   background-color: #fff;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  display: flex;
+  width: 0;
+  opacity: 0;
+  min-height: 100%;
+  max-width: 100%;
+  z-index: 100;
+  border: 1px solid #fff;
+  transition: all 0.5s;
+  background-color: #fff;
+  animation: show-right-window 0.3s linear;
+}
+
+.sidebar-active {
+  width: 500px;
+  opacity: 1;
+}
+
+.invisible {
+  display: none;
+}
+
+@keyframes show-right-window {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(300px);
+    transform: translateX(300px);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
 }
