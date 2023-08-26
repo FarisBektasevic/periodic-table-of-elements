@@ -6,7 +6,7 @@ const readElementMarkup = element => {
       groupBlockColors[element.groupBlock]
     }">
         <div class="header__buttons">
-            <i class="fa-solid fa-chevron-left"></i>
+            <i class="fa-solid fa-chevron-left close-sidebar"></i>
             <div class="wiki-link">
                 <a class="wiki-link" href="${wikipediaURL}${
     element.name

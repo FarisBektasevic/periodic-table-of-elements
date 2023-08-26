@@ -14,6 +14,7 @@ const main = document.querySelector('.main');
 const periodicTable = document.querySelector('.periodic-table');
 const spinner = document.querySelector('.rotate');
 const groupBlocksList = document.querySelector('.group-blocks-list');
+const backgroundBlack = document.querySelector('.background-black');
 // const listItems = document.querySelectorAll('.list-item');
 
 const sidebar = document.querySelector('.sidebar');
@@ -47,6 +48,7 @@ main.addEventListener('click', event => {
   const card = event.target.closest('.element-card');
   if (!card) return;
 
+  backgroundBlack.classList.remove('invisible');
   sidebar.classList.remove('invisible');
   sidebar.classList.add('sidebar-active');
 
@@ -86,4 +88,13 @@ main.addEventListener('click', e => {
       element.classList.add('element-card-shadow');
     }
   });
+});
+
+const body = document.querySelector('body');
+
+body.addEventListener('click', event => {
+  if (event.target.closest('.close-sidebar')) {
+    sidebar.classList.add('invisible');
+    backgroundBlack.classList.add('invisible');
+  }
 });
