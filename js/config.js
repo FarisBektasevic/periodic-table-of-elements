@@ -1,4 +1,5 @@
 export const url = 'https://neelpatel05.pythonanywhere.com';
+export const wikipediaURL = 'http://en.wikipedia.org/wiki/';
 
 export const groupBlockColors = {
   nonmetal: '#F2F7A1',

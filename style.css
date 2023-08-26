@@ -203,7 +203,7 @@ body {
   justify-content: space-between;
   height: 250px;
   background-color: rgba(255, 166, 0, 0.673);
-  border-bottom: 2px solid orange;
+  border-bottom: 4px solid;
 }
 
 .header__buttons {
@@ -251,7 +251,13 @@ body {
 .header__element--block {
   padding: 10px 20px;
   background-color: orange;
-  border-radius: 3px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+
   font-size: 14px;
   letter-spacing: 1px;
+}
+
+.wiki-link {
+  color: #fff;
 }
