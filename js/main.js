@@ -8,6 +8,7 @@ import {
 import { getData } from './helper.js';
 import { url } from './config.js';
 import { groupBlockColors } from './config.js';
+import { generateReadElementMarkup } from './readElementView.js';
 
 const main = document.querySelector('.main');
 const periodicTable = document.querySelector('.periodic-table');
@@ -45,9 +46,15 @@ main.addEventListener('click', event => {
 
   const card = event.target.closest('.element-card');
   if (!card) return;
-  console.log(sidebar);
+
   sidebar.classList.remove('invisible');
   sidebar.classList.add('sidebar-active');
+
+  generateReadElementMarkup(
+    sidebar,
+    state.elements.find(element => element.symbol === card.id)
+  );
+
   console.log(state.elements.find(element => element.symbol === card.id));
 });
 
