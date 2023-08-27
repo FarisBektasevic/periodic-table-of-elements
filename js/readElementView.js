@@ -1,6 +1,7 @@
 import { groupBlockColors, wikipediaURL } from './config.js';
+import { state } from './model.js';
 
-const readElementMarkup = element => {
+const readElementMarkup = (element, prev, next) => {
   return `
     <div class="sidebar__header" style="border-color:${
       groupBlockColors[element.groupBlock]
@@ -16,10 +17,13 @@ const readElementMarkup = element => {
             </div>
             
        </div>
-        <div class="header__element">
+
+        <header class="header__element">
             <div class="header__element--details">
                 <p>${element.name}</p>
-                <p><span class="element-symbol">${element.symbol}</span>26</p>
+                <p><span class="element-symbol">${element.symbol}</span>${
+    element.atomicNumber
+  }</p>
                 <p>${
                   element.atomicMass
                 } <span class="element-unit">(g/mol)</span></p>
@@ -32,14 +36,52 @@ const readElementMarkup = element => {
                   element.groupBlock.slice(1)
                 }</p>
             </div>
-        </div>
-    </div>`;
+        </header>
+        
+    </div>
+    <nav class="sidebar__nav">
+          ${
+            prev
+              ? `
+              <div id="${prev.name}" class="sidebar__nav--left">
+                <p>${prev.atomicNumber}</p>
+                <span style="background-color: ${
+                  groupBlockColors[prev.groupBlock]
+                }"></span>
+                <p>${prev.name}</p>
+              </div>`
+              : ''
+          }
+          
+          ${
+            next
+              ? `
+              <div id="${next.name}" class="sidebar__nav--right">
+                <p>${next.atomicNumber}</p>
+                <span style="background-color: ${
+                  groupBlockColors[next.groupBlock]
+                }"></span>
+                <p>${next.name}</p>
+              </div>`
+              : ''
+          }
+      </nav>`;
 };
 
 export const generateReadElementMarkup = (parentElement, currentElement) => {
-  parentElement.innerHTML = readElementMarkup(currentElement);
-  console.log(document.querySelector('wiki-link'));
-  console.log(parentElement.children);
+  const allElements = [...state.elements];
 
-  const url = wikipediaURL + currentElement.name;
+  const previousElement = allElements.find(
+    el => el.atomicNumber === currentElement.atomicNumber - 1
+  );
+
+  const nextElement = allElements.find(
+    el => el.atomicNumber === currentElement.atomicNumber + 1
+  );
+
+  parentElement.innerHTML = readElementMarkup(
+    currentElement,
+    previousElement,
+    nextElement
+  );
 };

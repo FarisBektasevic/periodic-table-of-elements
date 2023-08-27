@@ -98,3 +98,21 @@ body.addEventListener('click', event => {
     backgroundBlack.classList.add('invisible');
   }
 });
+
+sidebar.addEventListener('click', event => {
+  const navLeft = event.target.closest('.sidebar__nav--left');
+  const navRigth = event.target.closest('.sidebar__nav--right');
+  if (navLeft) {
+    generateReadElementMarkup(
+      sidebar,
+      state.elements.find(el => el.name === navLeft.id)
+    );
+  }
+
+  if (navRigth) {
+    generateReadElementMarkup(
+      sidebar,
+      state.elements.find(el => el.name === navRigth.id)
+    );
+  }
+});
