@@ -305,6 +305,7 @@ body {
 .sidebar__nav--left span {
   height: 5px;
   width: 5px;
+  margin: 0 2px;
   border-radius: 50%;
 }
 
