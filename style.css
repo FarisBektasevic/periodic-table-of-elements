@@ -298,14 +298,14 @@ body {
 
 .sidebar__nav--right p,
 .sidebar__nav--left p {
-  margin: 0 15px;
+  margin: 0 5px;
 }
 
 .sidebar__nav--right span,
 .sidebar__nav--left span {
   height: 5px;
   width: 5px;
-  margin: 0 2px;
+  margin: 0 5px;
   border-radius: 50%;
 }
 
