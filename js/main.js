@@ -92,6 +92,7 @@ main.addEventListener('click', e => {
 
 const body = document.querySelector('body');
 
+// hide sidebar
 body.addEventListener('click', event => {
   if (event.target.closest('.close-sidebar')) {
     sidebar.classList.add('invisible');
@@ -99,20 +100,17 @@ body.addEventListener('click', event => {
   }
 });
 
+// navigate to previous or next element
 sidebar.addEventListener('click', event => {
-  const navLeft = event.target.closest('.sidebar__nav--left');
-  const navRigth = event.target.closest('.sidebar__nav--right');
-  if (navLeft) {
-    generateReadElementMarkup(
-      sidebar,
-      state.elements.find(el => el.name === navLeft.id)
-    );
-  }
+  const left = event.target.closest('.sidebar__nav--left');
+  const right = event.target.closest('.sidebar__nav--right');
 
-  if (navRigth) {
+  const navigateTo = left || right;
+
+  if (navigateTo) {
     generateReadElementMarkup(
       sidebar,
-      state.elements.find(el => el.name === navRigth.id)
+      state.elements.find(el => el.name === navigateTo.id)
     );
   }
 });
