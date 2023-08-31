@@ -56,6 +56,8 @@ main.addEventListener('click', event => {
     sidebar,
     state.elements.find(element => element.symbol === card.id)
   );
+
+  console.log(state.elements.find(element => element.symbol === card.id));
 });
 
 main.addEventListener('click', e => {

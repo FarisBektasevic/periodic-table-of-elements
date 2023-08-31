@@ -2,6 +2,12 @@ import { groupBlockColors, wikipediaURL } from './config.js';
 import { state } from './model.js';
 
 const readElementMarkup = (element, prev, next) => {
+  const period = ypos => {
+    if (ypos === 9) return 6;
+    if (ypos === 10) return 7;
+    return ypos;
+  };
+
   return `
     <div class="sidebar__header" style="border-color:${
       groupBlockColors[element.groupBlock]
@@ -39,7 +45,7 @@ const readElementMarkup = (element, prev, next) => {
         </header>
         
     </div>
-    <nav class="sidebar__nav">
+    <nav class="sidebar__field sidebar__nav">
           ${
             prev
               ? `
@@ -65,22 +71,47 @@ const readElementMarkup = (element, prev, next) => {
               </div>`
               : ''
           }
-      </nav>`;
+      </nav>
+      <div class="sidebar__field sidebar__field--label"></div>
+      <div class="sidebar__field sidebar__field--details">
+        <p>English name:</p>
+        <p>${element.name}</p>
+      </div>
+      <div class="sidebar__field sidebar__field--details">
+        <p>Year discovered:</p>
+        <p>${element.yearDiscovered}</p>
+      </div>
+      <div class="sidebar__field sidebar__field--details">
+        <p>Atomic number:</p>
+        <p>${element.atomicNumber}</p>
+      </div>
+      <div class="sidebar__field sidebar__field--details">
+        <p>Period:</p>
+        <p>${period(element.ypos)}</p>
+      </div>
+      <div class="sidebar__field sidebar__field--details">
+        <p>Group:</p>
+        <p>${element.xpos}</p>
+      </div>
+      `;
 };
 
-export const generateReadElementMarkup = (parentElement, currentElement) => {
+export const generateReadElementMarkup = (
+  parentElement,
+  currentElementObject
+) => {
   const allElements = [...state.elements];
 
   const previousElement = allElements.find(
-    el => el.atomicNumber === currentElement.atomicNumber - 1
+    el => el.atomicNumber === currentElementObject.atomicNumber - 1
   );
 
   const nextElement = allElements.find(
-    el => el.atomicNumber === currentElement.atomicNumber + 1
+    el => el.atomicNumber === currentElementObject.atomicNumber + 1
   );
 
   parentElement.innerHTML = readElementMarkup(
-    currentElement,
+    currentElementObject,
     previousElement,
     nextElement
   );
