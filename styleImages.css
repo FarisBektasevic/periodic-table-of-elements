@@ -1,83 +1,90 @@
+:root {
+  --linear-gradient: linear-gradient(
+    rgba(171, 171, 171, 0),
+    rgba(0, 0, 0, 0.2)
+  );
+}
+
 .background-Hydrogen {
-  background-image: url(img/Hydrogen.avif);
+  background-image: var(--linear-gradient), url(img/Hydrogen.avif);
 }
 
 .background-Helium {
-  background-image: url(img/Helium.avif);
+  background-image: var(--linear-gradient), url(img/Helium.avif);
 }
 
 .background-Lithium {
-  background-image: url(img/Lithium.avif);
+  background-image: var(--linear-gradient), url(img/Lithium.avif);
 }
 
 .background-Beryllium {
-  background-image: url(img/Beryllium.avif);
+  background-image: var(--linear-gradient), url(img/Beryllium.avif);
 }
 
 .background-Boron {
-  background-image: url(img/Boron.avif);
+  background-image: var(--linear-gradient), url(img/Boron.avif);
 }
 
 .background-Carbon {
-  background-image: url(img/Carbon.avif);
+  background-image: var(--linear-gradient), url(img/Carbon.avif);
 }
 
 .background-Nitrogen {
-  background-image: url(img/Nitrogen.avif);
+  background-image: var(--linear-gradient), url(img/Nitrogen.avif);
 }
 
 .background-Oxygen {
-  background-image: url(img/Oxygen.avif);
+  background-image: var(--linear-gradient), url(img/Oxygen.avif);
 }
 
 .background-Fluorine {
-  background-image: url(img/Fluorine.avif);
+  background-image: var(--linear-gradient), url(img/Fluorine.avif);
 }
 
 .background-Neon {
-  background-image: url(img/Neon.avif);
+  background-image: var(--linear-gradient), url(img/Neon.avif);
 }
 
 .background-Sodium {
-  background-image: url(img/Sodium.avif);
+  background-image: var(--linear-gradient), url(img/Sodium.avif);
 }
 
 .background-Magnesium {
-  background-image: url(img/Magnesium.avif);
+  background-image: var(--linear-gradient), url(img/Magnesium.avif);
 }
 
 .background-Aluminum {
-  background-image: url(img/Aluminum.avif);
+  background-image: var(--linear-gradient), url(img/Aluminum.avif);
 }
 
 .background-Silicon {
-  background-image: url(img/Silicon.avif);
+  background-image: var(--linear-gradient), url(img/Silicon.avif);
 }
 
 .background-Phosphorus {
-  background-image: url(img/Phosphorus.avif);
+  background-image: var(--linear-gradient), url(img/Phosphorus.avif);
 }
 
-.background-Sulphur {
-  background-image: url(img/Sulphur.avif);
+.background-Sulfur {
+  background-image: var(--linear-gradient), url(img/Sulfur.avif);
 }
 
 .background-Chlorine {
-  background-image: url(img/Chlorine.avif);
+  background-image: var(--linear-gradient), url(img/Chlorine.avif);
 }
 
 .background-Argon {
-  background-image: url(img/Argon.avif);
+  background-image: var(--linear-gradient), url(img/Argon.avif);
 }
 
 .background-Potassium {
-  background-image: url(img/Potassium.avif);
+  background-image: var(--linear-gradient), url(img/Potassium.avif);
 }
 
 .background-Calcium {
-  background-image: url(img/Calcium.avif);
+  background-image: var(--linear-gradient), url(img/Calcium.avif);
 }
 
 .background-Scandium {
-  background-image: url(img/Scandium.avif);
+  background-image: var(--linear-gradient), url(img/Scandium.avif);
 }
