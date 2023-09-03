@@ -9,9 +9,9 @@ const readElementMarkup = (element, prev, next) => {
   };
 
   return `
-    <div class="sidebar__header" style="border-color:${
-      groupBlockColors[element.groupBlock]
-    }; background-image: url(img/${element.name}.jpg);">
+    <div class="sidebar__header background-${
+      element.name
+    }" style="border-color:${groupBlockColors[element.groupBlock]}">
         <div class="header__buttons">
             <i class="fa-solid fa-chevron-left close-sidebar"></i>
             <div class="wiki-link">
