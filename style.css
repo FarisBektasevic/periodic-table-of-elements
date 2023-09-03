@@ -211,6 +211,9 @@ body {
   min-height: 300px;
   background-color: #1a1e22;
   border-bottom: 3px solid;
+
+  background-size: cover;
+  background-position: center;
 }
 
 .header__buttons {

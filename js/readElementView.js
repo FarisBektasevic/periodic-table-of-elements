@@ -11,7 +11,7 @@ const readElementMarkup = (element, prev, next) => {
   return `
     <div class="sidebar__header" style="border-color:${
       groupBlockColors[element.groupBlock]
-    }">
+    }; background-image: url(img/${element.name}.jpg);">
         <div class="header__buttons">
             <i class="fa-solid fa-chevron-left close-sidebar"></i>
             <div class="wiki-link">
@@ -92,6 +92,26 @@ const readElementMarkup = (element, prev, next) => {
       <div class="sidebar__field sidebar__field--details">
         <p>Group:</p>
         <p>${element.xpos}</p>
+      </div>
+      <div class="sidebar__field sidebar__field--details">
+        <p>Amtomic weight (Relative atomic mass):</p>
+        <p>${element.atomicMass}</p>
+      </div>
+      <div class="sidebar__field sidebar__field--details">
+        <p>Density:</p>
+        <p>${element.density ? element.density + ' g/cm3' : '-'}</p>
+      </div>
+      <div class="sidebar__field sidebar__field--details">
+        <p>Melting point:</p>
+        <p>${element.meltingPoint || '-'}</p>
+      </div>
+      <div class="sidebar__field sidebar__field--details">
+        <p>Boiling point:</p>
+        <p>${element.boilingPoint || '-'}</p>
+      </div>
+      <div class="sidebar__field sidebar__field--details">
+        <p>Electron configuration:</p>
+        <p>${element.electronicConfiguration}</p>
       </div>
       `;
 };
