@@ -72,7 +72,12 @@ const readElementMarkup = (element, prev, next) => {
               : ''
           }
       </nav>
-      <div class="sidebar__field sidebar__field--label"></div>
+      <div class="sidebar__field sidebar__field--label">
+        <div class="sidebar__field__header" style="background-color: #f6511d;">
+              <i class="fa-regular fa-eye"></i>
+              Overwiev
+        </div>
+      </div>
       <div class="sidebar__field sidebar__field--details">
         <p>English name:</p>
         <p>${element.name}</p>
@@ -105,6 +110,14 @@ const readElementMarkup = (element, prev, next) => {
         <p>Amtomic weight (Relative atomic mass):</p>
         <p>${element.atomicMass}</p>
       </div>
+      <div class="sidebar__field sidebar__field--label">
+        <div class="sidebar__field__header" style="background-color: #00A878;">
+              <i class="fa-solid fa-t"></i>
+              Properties
+            </div>
+        </div>
+      </div>
+      
       <div class="sidebar__field sidebar__field--details">
         <p>Density:</p>
         <p>${element.density ? element.density + ' g/cm3' : '-'}</p>
@@ -116,6 +129,13 @@ const readElementMarkup = (element, prev, next) => {
       <div class="sidebar__field sidebar__field--details">
         <p>Boiling point:</p>
         <p>${element.boilingPoint || '-'}</p>
+      </div>
+      <div class="sidebar__field sidebar__field--label">
+        <div class="sidebar__field__header" style="background-color: #3F84E5;">
+              <i class="fa-solid fa-atom"></i>
+              Atomic properties
+            </div>
+        </div>
       </div>
       <div class="sidebar__field sidebar__field--details">
         <p>Electron configuration:</p>

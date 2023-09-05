@@ -293,8 +293,26 @@ body {
 }
 
 .sidebar__field--label {
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   border: none;
-  margin: 0;
+}
+
+.sidebar__field__header {
+  width: fit-content;
+  padding: 10px 30px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+
+  font-size: 16px;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+.sidebar__field__header i {
+  margin-right: 10px;
 }
 
 .sidebar__field--details {
@@ -359,4 +377,7 @@ body {
 .sidebar__nav--right:hover,
 .sidebar__nav--left:hover {
   background-color: #2b2e35;
+}
+
+.sidebar {
 }
