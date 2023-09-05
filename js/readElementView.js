@@ -94,6 +94,14 @@ const readElementMarkup = (element, prev, next) => {
         <p>${element.xpos}</p>
       </div>
       <div class="sidebar__field sidebar__field--details">
+        <p>Standard state:</p>
+        <p>${element.standardState}</p>
+      </div>
+      <div class="sidebar__field sidebar__field--details">
+        <p>Bonding type:</p>
+        <p>${element.bondingType}</p>
+      </div>
+      <div class="sidebar__field sidebar__field--details">
         <p>Amtomic weight (Relative atomic mass):</p>
         <p>${element.atomicMass}</p>
       </div>
@@ -112,6 +120,30 @@ const readElementMarkup = (element, prev, next) => {
       <div class="sidebar__field sidebar__field--details">
         <p>Electron configuration:</p>
         <p>${element.electronicConfiguration}</p>
+      </div>
+      <div class="sidebar__field sidebar__field--details">
+        <p>Oxidation states:</p>
+        <p>${element.oxidationStates || '-'}</p>
+      </div>
+      <div class="sidebar__field sidebar__field--details">
+        <p>Ion radius:</p>
+        <p>${element.ionRadius || '-'}</p>
+      </div>
+      <div class="sidebar__field sidebar__field--details">
+        <p>Van der Waals radius:</p>
+        <p>${element.vanDerValsRadius || '-'}</p>
+      </div>
+      <div class="sidebar__field sidebar__field--details">
+        <p>Electron affinity:</p>
+        <p>${element.electronAffinity || '-'}</p>
+      </div>
+      <div class="sidebar__field sidebar__field--details">
+        <p>Electronegativity:</p>
+        <p>${element.electronegativity || '-'}</p>
+      </div>
+      <div class="sidebar__field sidebar__field--details">
+        <p>Ionization energy:</p>
+        <p>${element.ionizationEnergy || '-'}</p>
       </div>
       `;
 };
