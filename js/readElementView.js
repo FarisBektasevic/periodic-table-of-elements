@@ -1,12 +1,8 @@
-import { groupBlockColors, wikipediaURL } from './config.js';
+import { groupBlockColors, wikipediaURL, elementProperties } from './config.js';
 import { state } from './model.js';
 
 const readElementMarkup = (element, prev, next) => {
-  const period = ypos => {
-    if (ypos === 9) return 6;
-    if (ypos === 10) return 7;
-    return ypos;
-  };
+  const elementPropertiesList = elementProperties(element);
 
   return `
     <div class="sidebar__header background-${element.groupBlock
@@ -72,100 +68,31 @@ const readElementMarkup = (element, prev, next) => {
               : ''
           }
       </nav>
-      <div class="sidebar__field sidebar__field--label">
-        <div class="sidebar__field__header" style="background-color: #f6511d;">
-              <i class="fa-regular fa-eye"></i>
-              Overwiev
-        </div>
-      </div>
-      <div class="sidebar__field sidebar__field--details">
-        <p>English name:</p>
-        <p>${element.name}</p>
-      </div>
-      <div class="sidebar__field sidebar__field--details">
-        <p>Year discovered:</p>
-        <p>${element.yearDiscovered}</p>
-      </div>
-      <div class="sidebar__field sidebar__field--details">
-        <p>Atomic number:</p>
-        <p>${element.atomicNumber}</p>
-      </div>
-      <div class="sidebar__field sidebar__field--details">
-        <p>Period:</p>
-        <p>${period(element.ypos)}</p>
-      </div>
-      <div class="sidebar__field sidebar__field--details">
-        <p>Group:</p>
-        <p>${element.xpos}</p>
-      </div>
-      <div class="sidebar__field sidebar__field--details">
-        <p>Standard state:</p>
-        <p>${element.standardState}</p>
-      </div>
-      <div class="sidebar__field sidebar__field--details">
-        <p>Bonding type:</p>
-        <p>${element.bondingType}</p>
-      </div>
-      <div class="sidebar__field sidebar__field--details">
-        <p>Amtomic weight (Relative atomic mass):</p>
-        <p>${element.atomicMass}</p>
-      </div>
-      <div class="sidebar__field sidebar__field--label">
-        <div class="sidebar__field__header" style="background-color: #00A878;">
-              <i class="fa-solid fa-t"></i>
-              Properties
-            </div>
-        </div>
-      </div>
-      
-      <div class="sidebar__field sidebar__field--details">
-        <p>Density:</p>
-        <p>${element.density ? element.density + ' g/cm3' : '-'}</p>
-      </div>
-      <div class="sidebar__field sidebar__field--details">
-        <p>Melting point:</p>
-        <p>${element.meltingPoint || '-'}</p>
-      </div>
-      <div class="sidebar__field sidebar__field--details">
-        <p>Boiling point:</p>
-        <p>${element.boilingPoint || '-'}</p>
-      </div>
-      <div class="sidebar__field sidebar__field--label">
-        <div class="sidebar__field__header" style="background-color: #3F84E5;">
-              <i class="fa-solid fa-atom"></i>
-              Atomic properties
-            </div>
-        </div>
-      </div>
-      <div class="sidebar__field sidebar__field--details">
-        <p>Electron configuration:</p>
-        <p>${element.electronicConfiguration}</p>
-      </div>
-      <div class="sidebar__field sidebar__field--details">
-        <p>Oxidation states:</p>
-        <p>${element.oxidationStates || '-'}</p>
-      </div>
-      <div class="sidebar__field sidebar__field--details">
-        <p>Ion radius:</p>
-        <p>${element.ionRadius || '-'}</p>
-      </div>
-      <div class="sidebar__field sidebar__field--details">
-        <p>Van der Waals radius:</p>
-        <p>${element.vanDerValsRadius || '-'}</p>
-      </div>
-      <div class="sidebar__field sidebar__field--details">
-        <p>Electron affinity:</p>
-        <p>${element.electronAffinity || '-'}</p>
-      </div>
-      <div class="sidebar__field sidebar__field--details">
-        <p>Electronegativity:</p>
-        <p>${element.electronegativity || '-'}</p>
-      </div>
-      <div class="sidebar__field sidebar__field--details">
-        <p>Ionization energy:</p>
-        <p>${element.ionizationEnergy || '-'}</p>
-      </div>
+      ${elementPropertiesList.map(generateElementPropertiesMarkup)}
       `;
+};
+
+const generateElementPropertiesMarkup = prop => {
+  const { backgroundColor, icon, header, section } = prop;
+
+  return `
+  <div class="sidebar__field sidebar__field--label">
+      <div class="sidebar__field__header" style="background-color: ${backgroundColor};">
+        ${icon}
+        ${header}
+      </div>     
+  </div>
+  ${section
+    .map(el => {
+      return `
+    <div class="sidebar__field sidebar__field--details">
+      <p>${el[0]}</p>
+      <p>${el[1] || '-'}</p>
+    </div>
+    `;
+    })
+    .join('')}
+  `;
 };
 
 export const generateReadElementMarkup = (
