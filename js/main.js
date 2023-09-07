@@ -6,18 +6,23 @@ import {
   renderPeriodicTable,
 } from './periodicTableView.js';
 import { getData } from './helper.js';
-import { url } from './config.js';
-import { groupBlockColors } from './config.js';
-import { generateReadElementMarkup } from './readElementView.js';
+import { url, groupBlockColors } from './config.js';
+import {
+  closeSidebarHandler,
+  markGroupBlocksHandler,
+  navigateElementsInSidebar,
+  showSidebarHandler,
+} from './eventHandlers.js';
 
+const body = document.querySelector('body');
 const main = document.querySelector('.main');
 const periodicTable = document.querySelector('.periodic-table');
 const spinner = document.querySelector('.rotate');
 const groupBlocksList = document.querySelector('.group-blocks-list');
-const backgroundBlack = document.querySelector('.background-black');
-// const listItems = document.querySelectorAll('.list-item');
 
+// const backgroundBlack = document.querySelector('.background-black');
 const sidebar = document.querySelector('.sidebar');
+
 // fetch data and adding positions (xpos and ypos for every element)
 const controllPeriodicTableData = async () => {
   state.elements = await getData(url);
@@ -27,14 +32,14 @@ const controllPeriodicTableData = async () => {
 // adding div for each element in periodic table
 // adding groups and periods numbers before each
 const controllPeriodicTableView = () => {
-  spinner.classList.add('invisible');
-  periodicTable.classList.remove('invisible');
+  spinner.classList.add('invisible'); // hides spinner
+  periodicTable.classList.remove('invisible'); // shows periodic table
 
   renderGroupBlocksList(groupBlocksList, Object.entries(groupBlockColors));
 
-  renderPeriodicTable(periodicTable, state.elements);
-  renderPeriodNames(periodicTable, state.periods);
-  renderGroupNames(periodicTable, state.groups, state.elements);
+  renderPeriodicTable(periodicTable, state.elements); // add div for each element in periodic table and gives them position in css grid
+  renderPeriodNames(periodicTable, state.periods); // add div  with period numbers to the left side
+  renderGroupNames(periodicTable, state.groups, state.elements); // adds div whith group number at the top of each group
 };
 
 await controllPeriodicTableData();
@@ -42,77 +47,15 @@ controllPeriodicTableView();
 
 // EVENT LISTENERS
 
-main.addEventListener('click', event => {
-  event.preventDefault();
-
-  const card = event.target.closest('.element-card');
-  if (!card) return;
-
-  backgroundBlack.classList.remove('invisible');
-  sidebar.classList.remove('invisible');
-  sidebar.classList.add('sidebar-active');
-
-  generateReadElementMarkup(
-    sidebar,
-    state.elements.find(element => element.symbol === card.id)
-  );
-
-  console.log(state.elements.find(element => element.symbol === card.id));
-});
-
-main.addEventListener('click', e => {
-  e.preventDefault();
-
-  const listItem = e.target.closest('.list-item');
-  if (!listItem) return;
-
-  const buttons = document.querySelectorAll('.btn');
-  buttons.forEach(btn => {
-    btn.style.removeProperty('background-color');
-  });
-
-  listItem.children[0].style.backgroundColor =
-    listItem.children[0].style.borderColor;
-
-  const tableCards = document.querySelectorAll('.element-card');
-
-  Array.from(tableCards).forEach(element => {
-    element.classList.remove('element-card-shadow');
-    element.style.borderColor =
-      groupBlockColors[element.getAttribute('data-category')];
-
-    if (
-      element.getAttribute('data-category') !==
-        listItem.getAttribute('data-category') &&
-      listItem.getAttribute('data-category') !== 'all items'
-    ) {
-      element.style.removeProperty('border-color');
-      element.classList.add('element-card-shadow');
-    }
-  });
-});
-
-const body = document.querySelector('body');
+//show sidebar
+main.addEventListener('click', showSidebarHandler);
 
 // hide sidebar
-body.addEventListener('click', event => {
-  if (event.target.closest('.close-sidebar')) {
-    sidebar.classList.add('invisible');
-    backgroundBlack.classList.add('invisible');
-  }
-});
+body.addEventListener('click', closeSidebarHandler);
+
+// by clicking on item of specific group block only elements that belong to that block are colored
+// clicked list item gets filled with its border color
+main.addEventListener('click', markGroupBlocksHandler);
 
 // navigate to previous or next element
-sidebar.addEventListener('click', event => {
-  const left = event.target.closest('.sidebar__nav--left');
-  const right = event.target.closest('.sidebar__nav--right');
-
-  const navigateTo = left || right;
-
-  if (navigateTo) {
-    generateReadElementMarkup(
-      sidebar,
-      state.elements.find(el => el.name === navigateTo.id)
-    );
-  }
-});
+sidebar.addEventListener('click', navigateElementsInSidebar);
