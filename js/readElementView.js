@@ -68,7 +68,7 @@ const readElementMarkup = (element, prev, next) => {
               : ''
           }
       </nav>
-      ${elementPropertiesList.map(generateElementPropertiesMarkup)}
+      ${elementPropertiesList.map(generateElementPropertiesMarkup).join('')}
       `;
 };
 

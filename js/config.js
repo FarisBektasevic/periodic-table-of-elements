@@ -17,11 +17,37 @@ export const groupBlockColors = {
 };
 
 export const elementProperties = element => {
+  const {
+    name,
+    yearDiscovered,
+    atomicNumber,
+    xpos,
+    ypos,
+    standardState,
+    bondingType,
+    atomicMass,
+  } = element;
+
+  const { meltingPoint, boilingPoint, density } = element;
+  const {
+    electronicConfiguration,
+    electronAffinity,
+    electronegativity,
+    vanDerValsRadius,
+    ionRadius,
+    ionizationEnergy,
+    oxidationStates,
+  } = element;
+
   const period = ypos => {
     if (ypos === 9) return 6;
     if (ypos === 10) return 7;
     return ypos;
   };
+
+  const convertKelvinsToCelsius = K => Number(K - 273.15).toFixed(3);
+  const convertKelvinsToFarenheits = K =>
+    Number(1.8 * (K - 273.15) + 32).toFixed(2);
 
   return [
     {
@@ -29,14 +55,14 @@ export const elementProperties = element => {
       backgroundColor: '#f6511d',
       header: 'Overview',
       section: Object.entries({
-        'English name': element.name,
-        'Year discovered': `${element.yearDiscovered}<sup>3</sup>`,
-        'Atomic number': element.symbol + 'g/mol',
-        Group: element.xpos,
-        Period: period(element.ypos),
-        'Standard state': element.standardState,
-        'Bonding type': element.bondingType,
-        'Atomic weight (Relative atomic mass)': element.atomicMass,
+        'English name': name,
+        'Year discovered': `${yearDiscovered}`,
+        'Atomic number': atomicNumber,
+        Group: xpos,
+        Period: period(ypos),
+        'Standard state': standardState,
+        'Bonding type': bondingType,
+        'Atomic weight (Relative atomic mass)': `${atomicMass} (g/mol)`,
       }),
     },
     {
@@ -44,9 +70,18 @@ export const elementProperties = element => {
       backgroundColor: '#00A878',
       header: 'Properties',
       section: Object.entries({
-        Density: element.density,
-        'Melting point': element.meltingPoint,
-        'Boiling point': element.boilingPoint,
+        Density: density && `${density} (g/cm<sup>3</sup>)`,
+        'Melting point':
+          meltingPoint &&
+          `${meltingPoint}K = ${convertKelvinsToCelsius(
+            meltingPoint
+          )}°C = ${convertKelvinsToFarenheits(meltingPoint)}°F`,
+
+        'Boiling point':
+          boilingPoint &&
+          `${boilingPoint}K = ${convertKelvinsToCelsius(
+            boilingPoint
+          )}°C = ${convertKelvinsToFarenheits(boilingPoint)}°F`,
       }),
     },
     {
@@ -54,13 +89,13 @@ export const elementProperties = element => {
       backgroundColor: '#3F84E5',
       header: 'Atomic properties',
       section: Object.entries({
-        'Electron configuration': element.electronicConfiguration,
-        'Oxidation states': element.oxidationStates,
-        'Ion radius': element.ionRadius,
-        'Van der Waals radius': element.vanDerValsRadius,
-        'Electron effinity': element.electronAffinity,
-        Electronegativity: element.electronegativity,
-        'Ionization energy': element.ionizationEnergy,
+        'Electron configuration': electronicConfiguration,
+        'Oxidation states': oxidationStates,
+        'Ion radius': ionRadius && `${ionRadius} (pm)`,
+        'Van der Waals radius': vanDerValsRadius && `${vanDerValsRadius} (pm)`,
+        'Electron effinity': electronAffinity && `${electronAffinity} (kJ/mol)`,
+        Electronegativity: electronegativity,
+        'Ionization energy': ionizationEnergy && `${ionizationEnergy} (kj/mol)`,
       }),
     },
   ];
