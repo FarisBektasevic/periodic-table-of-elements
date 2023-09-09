@@ -29,6 +29,7 @@ export const elementProperties = element => {
   } = element;
 
   const { meltingPoint, boilingPoint, density } = element;
+
   const {
     electronicConfiguration,
     electronAffinity,

@@ -293,7 +293,7 @@ body {
 }
 
 .sidebar__field--label {
-  margin: 10px 0;
+  margin: 15px 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -360,7 +360,7 @@ body {
 .sidebar__nav--left span {
   height: 5px;
   width: 5px;
-  margin: 0 5px;
+  /* margin: 0 5px; */
   border-radius: 50%;
 }
 

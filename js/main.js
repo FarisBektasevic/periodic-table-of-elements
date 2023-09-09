@@ -19,8 +19,6 @@ const main = document.querySelector('.main');
 const periodicTable = document.querySelector('.periodic-table');
 const spinner = document.querySelector('.rotate');
 const groupBlocksList = document.querySelector('.group-blocks-list');
-
-// const backgroundBlack = document.querySelector('.background-black');
 const sidebar = document.querySelector('.sidebar');
 
 // fetch data and adding positions (xpos and ypos for every element)
@@ -47,15 +45,15 @@ controllPeriodicTableView();
 
 // EVENT LISTENERS
 
+// by clicking on item of specific group block only elements that belong to that block are colored
+// clicked list item gets filled with its border color
+main.addEventListener('click', markGroupBlocksHandler);
+
 //show sidebar
 main.addEventListener('click', showSidebarHandler);
 
 // hide sidebar
 body.addEventListener('click', closeSidebarHandler);
 
-// by clicking on item of specific group block only elements that belong to that block are colored
-// clicked list item gets filled with its border color
-main.addEventListener('click', markGroupBlocksHandler);
-
-// navigate to previous or next element
+// navigate to previous or next element in sidebar
 sidebar.addEventListener('click', navigateElementsInSidebar);

@@ -39,6 +39,7 @@ export const navigateElementsInSidebar = event => {
 
   if (navigateTo) {
     // sidebar gets new innerHTML with prev or next element
+    // navigateTo id is name property of that element
     generateReadElementMarkup(
       sidebar,
       state.elements.find(el => el.name === navigateTo.id)
@@ -51,20 +52,42 @@ export const markGroupBlocksHandler = event => {
   if (!listItem) return;
 
   const buttons = document.querySelectorAll('.btn');
-  buttons.forEach(btn => {
-    btn.style.removeProperty('background-color');
-  });
+  const tableCards = document.querySelectorAll('.element-card');
+
+  // need function to set default view every time its called or if list item is already clicked
+
+  const setDefaultView = () => {
+    buttons.forEach(btn => {
+      btn.style.removeProperty('background-color');
+    });
+
+    // buttons[buttons.length - 1].style.backgroundColor = '#fff';
+
+    Array.from(tableCards).forEach(element => {
+      element.classList.remove('element-card-shadow');
+      element.style.borderColor =
+        groupBlockColors[element.getAttribute('data-category')];
+    });
+  };
+
+  // if element is already selected
+  if (
+    getComputedStyle(listItem.children[0]).backgroundColor !==
+      'rgba(0, 0, 0, 0)' &&
+    listItem.getAttribute('data-category') !== 'all items'
+  ) {
+    setDefaultView();
+    buttons[buttons.length - 1].style.backgroundColor = '#fff';
+
+    return;
+  }
+
+  setDefaultView();
 
   listItem.children[0].style.backgroundColor =
     listItem.children[0].style.borderColor;
 
-  const tableCards = document.querySelectorAll('.element-card');
-
   Array.from(tableCards).forEach(element => {
-    element.classList.remove('element-card-shadow');
-    element.style.borderColor =
-      groupBlockColors[element.getAttribute('data-category')];
-
     if (
       element.getAttribute('data-category') !==
         listItem.getAttribute('data-category') &&
