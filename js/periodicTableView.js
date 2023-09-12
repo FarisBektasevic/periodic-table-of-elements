@@ -1,15 +1,15 @@
 import { groupBlockColors } from './config.js';
 
 const generateElementCardMarkup = element => {
+  const { groupBlock, symbol, xpos, ypos, atomicNumber, name } = element;
+
   return `
-    <div data-category="${element.groupBlock}" class="element-card" id="${
-    element.symbol
-  }" style="grid-column:${element.xpos + 1}; grid-row:${
-    element.ypos + 1
-  }; border-color:${groupBlockColors[element.groupBlock]}">
-      <span>${element.atomicNumber}</span>
-      <span class="element-card--symbol">${element.symbol}</span>
-      <p>${element.name}</p>
+    <div data-category="${groupBlock}" class="element-card" id="${symbol}" style="grid-column:${
+    xpos + 1
+  }; grid-row:${ypos + 1}; border-color:${groupBlockColors[groupBlock]}">
+      <span>${atomicNumber}</span>
+      <span class="element-card__symbol">${symbol}</span>
+      <p class="element-card__p">${name}</p>
     </div>`;
 };
 
@@ -33,11 +33,11 @@ const generateGroupNameMarkup = (group, ypos) => {
 
 const generateGroupBlocksListMarkup = (name, color) => {
   return `
-  <div data-category="${name.toLowerCase()}" class="list-item" >
-    <div class="btn" style="border-color: ${color}; background-color:${
+  <div data-category="${name.toLowerCase()}" class="group-blocks__list-item" >
+    <div class="group-blocks__list-item__btn" style="border-color: ${color}; background-color:${
     name === 'All items' ? '#fff' : ''
   }"></div>
-    <p>${name}</p>
+    <p class="group-blocks__list-item__name">${name}</p>
   </div>`;
 };
 

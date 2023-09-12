@@ -12,7 +12,7 @@ export const showSidebarHandler = event => {
 
   backgroundBlack.classList.remove('invisible');
   sidebar.classList.remove('invisible');
-  sidebar.classList.add('sidebar-active');
+  sidebar.classList.add('sidebar--active');
 
   // every card has id that is symbol of element its represents
   //inner html of sidebar is generated with props of selected element
@@ -48,10 +48,10 @@ export const navigateElementsInSidebar = event => {
 };
 
 export const markGroupBlocksHandler = event => {
-  const listItem = event.target.closest('.list-item');
+  const listItem = event.target.closest('.group-blocks__list-item');
   if (!listItem) return;
 
-  const buttons = document.querySelectorAll('.btn');
+  const buttons = document.querySelectorAll('.group-blocks__list-item__btn');
   const tableCards = document.querySelectorAll('.element-card');
 
   // need function to set default view every time its called or if list item is already clicked
@@ -64,7 +64,7 @@ export const markGroupBlocksHandler = event => {
     // buttons[buttons.length - 1].style.backgroundColor = '#fff';
 
     Array.from(tableCards).forEach(element => {
-      element.classList.remove('element-card-shadow');
+      element.classList.remove('element-card--excluded');
       element.style.borderColor =
         groupBlockColors[element.getAttribute('data-category')];
     });
@@ -94,7 +94,7 @@ export const markGroupBlocksHandler = event => {
       listItem.getAttribute('data-category') !== 'all items'
     ) {
       element.style.removeProperty('border-color');
-      element.classList.add('element-card-shadow');
+      element.classList.add('element-card--excluded');
     }
   });
 };

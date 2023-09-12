@@ -18,7 +18,7 @@ const body = document.querySelector('body');
 const main = document.querySelector('.main');
 const periodicTable = document.querySelector('.periodic-table');
 const spinner = document.querySelector('.rotate');
-const groupBlocksList = document.querySelector('.group-blocks-list');
+const groupBlocksList = document.querySelector('.group-blocks');
 const sidebar = document.querySelector('.sidebar');
 
 // fetch data and adding positions (xpos and ypos for every element)
