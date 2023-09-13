@@ -1,7 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+:root {
+  --background-color: #20252b;
+  --color-excluded: #4b4f53;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  height: 100vh;
+  width: 100vw;
+  font-size: 0.6rem;
+  color: #fff;
+  background-color: var(--background-color);
+  /* overflow: hidden; */
+  letter-spacing: 0.05em;
+}
+
+.main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* ------ SPINNER -------------*/
+
+.rotate {
+  display: flex;
+  animation: rotation 2s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+/* ------ PERIODIC TABLE  ----------*/
+
 .periodic-table {
   height: 100%;
   display: grid;
-  grid-template-columns: repeat(19, 66px);
+  grid-template-columns: repeat(19, 64px);
   grid-template-rows: repeat(11, 60px);
   grid-column-gap: 2px;
   grid-row-gap: 1px;
@@ -10,7 +65,9 @@
   white-space: nowrap;
 }
 
-.element-card {
+/* ------- ELEMENTS ---------- */
+
+.periodic-table__element {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -21,30 +78,32 @@
   cursor: pointer;
 }
 
-.element-card:hover {
+.periodic-table__element:hover {
   background-color: #31343d;
   scale: 1.026;
 }
 
-.element-card--excluded {
+.periodic-table__element--excluded {
   border-color: var(--color-excluded);
   color: var(--color-excluded);
 }
 
-.element-card__p {
+.periodic-table__element__p {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
   font-weight: 300;
 }
 
-.element-card__symbol {
+.periodic-table__element__symbol {
   font-size: 1.2rem;
   font-weight: 700;
 }
 
-.period-label,
-.group-label {
+/* -------- PERIODS AND GROUPS --------- */
+
+.periodic-table__period,
+.periodic-table__group {
   display: flex;
   font-size: 1rem;
   font-weight: 700;
@@ -52,12 +111,12 @@
   opacity: 0.65;
 }
 
-.period-label {
+.periodic-table__period {
   justify-content: flex-end;
   align-items: center;
 }
 
-.group-label {
+.periodic-table__group {
   justify-content: center;
   align-items: flex-end;
 }
@@ -76,7 +135,7 @@
 }
 
 .group-blocks__list-item {
-  margin: 0 70px 12px 0;
+  margin: 0 60px 12px 0;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -95,6 +154,45 @@
   transition: 0.3s;
 }
 
-/* .group-blocks__list-item__btn--selected {
-    background-color: #fff;
-  } */
+/* @media screen and (width < 1200px) {
+  body {
+    font-size: 0.4rem;
+  }
+  .periodic-table {
+    font-size: 0.5rem;
+    grid-template-columns: repeat(19, 45px);
+    grid-template-rows: repeat(11, 40px);
+  }
+
+  .element-card__symbol {
+    font-size: 0.7rem;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .period-label,
+  .group-label {
+    font-size: 0.7rem;
+  }
+
+  .group-blocks {
+    font-size: 0.6rem;
+    height: 100px;
+  }
+
+  .group-blocks__list-item {
+    margin-right: 40px;
+    margin-bottom: 10px;
+  }
+
+  .group-blocks__list-item__btn {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+@media screen and (width < 1024px) {
+  .group-blocks {
+    display: none;
+  }
+} */

@@ -4,18 +4,18 @@ const generateElementCardMarkup = element => {
   const { groupBlock, symbol, xpos, ypos, atomicNumber, name } = element;
 
   return `
-    <div data-category="${groupBlock}" class="element-card" id="${symbol}" style="grid-column:${
+    <div data-category="${groupBlock}" class="periodic-table__element" id="${symbol}" style="grid-column:${
     xpos + 1
   }; grid-row:${ypos + 1}; border-color:${groupBlockColors[groupBlock]}">
       <span>${atomicNumber}</span>
-      <span class="element-card__symbol">${symbol}</span>
-      <p class="element-card__p">${name}</p>
+      <span class="periodic-table__element__symbol">${symbol}</span>
+      <p class="periodic-table__element__p">${name}</p>
     </div>`;
 };
 
 const generatePeriodNameMarkup = period => {
   return `
-<div class="period-label" id="${period}" style="grid-column:${1}; grid-row:${
+<div class="periodic-table__period" id="${period}" style="grid-column:${1}; grid-row:${
     period + 1
   }; color: #fff">
 <span>${period}</span>
@@ -24,7 +24,7 @@ const generatePeriodNameMarkup = period => {
 
 const generateGroupNameMarkup = (group, ypos) => {
   return `
-    <div class="group-label" style="grid-column:${
+    <div class="periodic-table__group" style="grid-column:${
       group + 1
     }; grid-row:${ypos}; color: #fff">
     <span>${group}</span>

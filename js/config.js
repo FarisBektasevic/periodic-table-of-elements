@@ -96,7 +96,7 @@ export const elementProperties = element => {
         'Van der Waals radius': vanDerValsRadius && `${vanDerValsRadius} (pm)`,
         'Electron effinity': electronAffinity && `${electronAffinity} (kJ/mol)`,
         Electronegativity: electronegativity,
-        'Ionization energy': ionizationEnergy && `${ionizationEnergy} (kj/mol)`,
+        'Ionization energy': ionizationEnergy && `${ionizationEnergy} (kJ/mol)`,
       }),
     },
   ];

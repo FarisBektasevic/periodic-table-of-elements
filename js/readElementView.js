@@ -8,7 +8,7 @@ const readElementMarkup = (element, prev, next) => {
     <div class="sidebar__header background-${element.groupBlock
       .split(' ')
       .join('-')}" style="border-color:${groupBlockColors[element.groupBlock]}">
-        <div class="header__buttons">
+        <div class="sidebar__header__buttons">
             <i class="fa-solid fa-chevron-left close-sidebar"></i>
             <div class="wiki-link">
                 <a class="wiki-link" href="${wikipediaURL}${

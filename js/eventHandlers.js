@@ -7,7 +7,7 @@ const backgroundBlack = document.querySelector('.background-black');
 
 // shows sidebar when specific element is clicked
 export const showSidebarHandler = event => {
-  const card = event.target.closest('.element-card');
+  const card = event.target.closest('.periodic-table__element');
   if (!card) return;
 
   backgroundBlack.classList.remove('invisible');
@@ -52,7 +52,8 @@ export const markGroupBlocksHandler = event => {
   if (!listItem) return;
 
   const buttons = document.querySelectorAll('.group-blocks__list-item__btn');
-  const tableCards = document.querySelectorAll('.element-card');
+  const tableCards = document.querySelectorAll('.periodic-table__element');
+  console.log(tableCards);
 
   // need function to set default view every time its called or if list item is already clicked
 
@@ -64,7 +65,7 @@ export const markGroupBlocksHandler = event => {
     // buttons[buttons.length - 1].style.backgroundColor = '#fff';
 
     Array.from(tableCards).forEach(element => {
-      element.classList.remove('element-card--excluded');
+      element.classList.remove('periodic-table__element--excluded');
       element.style.borderColor =
         groupBlockColors[element.getAttribute('data-category')];
     });
@@ -94,7 +95,7 @@ export const markGroupBlocksHandler = event => {
       listItem.getAttribute('data-category') !== 'all items'
     ) {
       element.style.removeProperty('border-color');
-      element.classList.add('element-card--excluded');
+      element.classList.add('periodic-table__element--excluded');
     }
   });
 };
