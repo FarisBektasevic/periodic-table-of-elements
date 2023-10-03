@@ -58,12 +58,12 @@
   padding-top: 20px;
 }
 
-.sidebar__header__buttons i {
+.sidebar__header__buttons__i {
   cursor: pointer;
   font-size: 25px;
 }
 
-.header__element {
+.sidebar__header__element {
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -72,27 +72,27 @@
   padding-bottom: 15px;
 }
 
-.header__element--details {
+.sidebar__header__element__details {
   font-size: 20px;
   font-weight: bold;
 }
 
-.header__element--details p {
+.sidebar__header__element__details__name {
   margin-top: 5px;
 }
 
-.element-symbol {
+.sidebar__header__element__details__symbol {
   font-size: 50px;
   margin-right: 15px;
   margin-left: 5px;
 }
 
-.element-unit {
+.sidebar__header__element__details__unit {
   font-size: 14px;
   font-weight: 400;
 }
 
-.header__element--block {
+.sidebar__header__element__category {
   padding: 10px 20px;
   background-color: orange;
   border-top-left-radius: 3px;
@@ -210,7 +210,7 @@
 .sidebar__nav--left span {
   height: 5px;
   width: 5px;
-  /* margin: 0 5px; */
+  margin: 0 5px;
   border-radius: 50%;
 }
 

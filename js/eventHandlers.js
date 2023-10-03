@@ -53,7 +53,6 @@ export const markGroupBlocksHandler = event => {
 
   const buttons = document.querySelectorAll('.group-blocks__list-item__btn');
   const tableCards = document.querySelectorAll('.periodic-table__element');
-  console.log(tableCards);
 
   // need function to set default view every time its called or if list item is already clicked
 

@@ -22,5 +22,3 @@ This is a web application that serves as an interactive periodic table of elemen
 ## Usage
 
 Navigate through the periodic table by clicking on elements.
-
-<!-- # live demo: https://lively-chebakia-0d61da.netlify.app -->

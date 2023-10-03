@@ -9,28 +9,30 @@ const readElementMarkup = (element, prev, next) => {
       .split(' ')
       .join('-')}" style="border-color:${groupBlockColors[element.groupBlock]}">
         <div class="sidebar__header__buttons">
-            <i class="fa-solid fa-chevron-left close-sidebar"></i>
+            <i class="sidebar__header__buttons__i fa-solid fa-chevron-left close-sidebar"></i>
             <div class="wiki-link">
                 <a class="wiki-link" href="${wikipediaURL}${
     element.name
   }" target="_blank" rel="noopener noreferrer">
-                    <i class="fa-brands fa-wikipedia-w"></i>
+                    <i class="sidebar__header__buttons__i fa-brands fa-wikipedia-w"></i>
                 </a>
             </div>
             
        </div>
 
-        <header class="header__element">
-            <div class="header__element--details">
-                <p>${element.name}</p>
-                <p><span class="element-symbol">${element.symbol}</span>${
-    element.atomicNumber
-  }</p>
+        <header class="sidebar__header__element">
+            <div class="sidebar__header__element__details">
+                <p class="sidebar__header__element__details__name">${
+                  element.name
+                }</p>
+                <p><span class="sidebar__header__element__details__symbol">${
+                  element.symbol
+                }</span>${element.atomicNumber}</p>
                 <p>${
                   element.atomicMass
-                } <span class="element-unit">(g/mol)</span></p>
+                } <span class="sidebar__header__element__details__unit">(g/mol)</span></p>
             </div>
-            <div class="header__element--block" style="background-color:${
+            <div class="sidebar__header__element__category sidebar__header__element__details" style="background-color:${
               groupBlockColors[element.groupBlock]
             }">
                 <p>${

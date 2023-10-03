@@ -23,7 +23,7 @@ const sidebar = document.querySelector('.sidebar');
 
 // fetch data and adding positions (xpos and ypos for every element)
 const controllPeriodicTableData = async () => {
-  state.elements = await getData(url);
+  state.elements = await getData('./data.JSON');
   addElementPositions(state.elements, state.positions);
 };
 
