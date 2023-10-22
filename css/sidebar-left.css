@@ -35,3 +35,7 @@
   cursor: auto;
   pointer-events: none;
 }
+
+.invisible {
+  display: none;
+}

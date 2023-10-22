@@ -32,9 +32,8 @@ const controllPeriodicTableData = async () => {
 // adding groups and periods numbers before each
 const controllPeriodicTableView = () => {
   spinner.classList.add('invisible'); // hides spinner
-  // main.classList.remove('invisible');
   periodicTable.classList.remove('invisible'); // shows periodic table
-  menuNavigation.classList.remove('invisible'); // show menu navigation
+  menuNavigation.classList.remove('invisible'); // shows menu navigation
 
   renderGroupBlocksList(groupBlocksList, Object.entries(groupBlockColors));
 
