@@ -20,6 +20,7 @@ const periodicTable = document.querySelector('.periodic-table');
 const spinner = document.querySelector('.rotate');
 const groupBlocksList = document.querySelector('.group-blocks');
 const sidebar = document.querySelector('.sidebar');
+const menuNavigation = document.querySelector('.main-menu');
 
 // fetch data and adding positions (xpos and ypos for every element)
 const controllPeriodicTableData = async () => {
@@ -32,6 +33,7 @@ const controllPeriodicTableData = async () => {
 const controllPeriodicTableView = () => {
   spinner.classList.add('invisible'); // hides spinner
   periodicTable.classList.remove('invisible'); // shows periodic table
+  menuNavigation.classList.remove('invisible'); // show menu navigation
 
   renderGroupBlocksList(groupBlocksList, Object.entries(groupBlockColors));
 
