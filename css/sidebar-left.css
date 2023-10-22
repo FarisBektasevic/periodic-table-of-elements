@@ -11,6 +11,7 @@
   width: 65px;
   left: 3rem;
   border-radius: 20px;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .main-menu__item {

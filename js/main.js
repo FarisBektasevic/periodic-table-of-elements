@@ -6,7 +6,7 @@ import {
   renderPeriodicTable,
 } from './periodicTableView.js';
 import { getData } from './helper.js';
-import { url, groupBlockColors } from './config.js';
+import { groupBlockColors } from './config.js';
 import {
   closeSidebarHandler,
   markGroupBlocksHandler,
