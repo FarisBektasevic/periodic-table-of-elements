@@ -4,6 +4,15 @@ import { groupBlockColors } from './config.js';
 
 const sidebar = document.querySelector('.sidebar');
 const backgroundBlack = document.querySelector('.background-black');
+const searchElementSidebar = document.querySelector('.search-element');
+
+export const showSearchElementHandler = event => {
+  const button = event.target.closest('.main-menu__item');
+  if (!button) return;
+
+  searchElementSidebar.classList.remove('invisible');
+  backgroundBlack.classList.remove('invisible');
+};
 
 // shows sidebar when specific element is clicked
 export const showSidebarHandler = event => {
@@ -26,6 +35,7 @@ export const showSidebarHandler = event => {
 export const closeSidebarHandler = event => {
   if (event.target.closest('.close-sidebar')) {
     sidebar.classList.add('invisible');
+    searchElementSidebar.classList.add('invisible');
     backgroundBlack.classList.add('invisible');
   }
 };

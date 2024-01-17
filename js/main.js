@@ -12,6 +12,7 @@ import {
   markGroupBlocksHandler,
   navigateElementsInSidebar,
   showSidebarHandler,
+  showSearchElementHandler,
 } from './eventHandlers.js';
 
 const body = document.querySelector('body');
@@ -59,3 +60,5 @@ body.addEventListener('click', closeSidebarHandler);
 
 // navigate to previous or next element in sidebar
 sidebar.addEventListener('click', navigateElementsInSidebar);
+
+main.addEventListener('click', showSearchElementHandler);
