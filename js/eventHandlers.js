@@ -10,6 +10,15 @@ export const showSearchElementHandler = event => {
   const button = event.target.closest('.main-menu__item');
   if (!button) return;
 
+  if (button.id === 'home-button') {
+    searchElementSidebar.classList.add('invisible');
+    backgroundBlack.classList.add('invisible');
+    sidebar.classList.add('invisible');
+    return;
+  }
+
+  sidebar.classList.add('invisible');
+
   searchElementSidebar.classList.remove('invisible');
   backgroundBlack.classList.remove('invisible');
 };
@@ -33,7 +42,10 @@ export const showSidebarHandler = event => {
 
 // closing sidebar
 export const closeSidebarHandler = event => {
-  if (event.target.closest('.close-sidebar')) {
+  if (
+    event.target.closest('.close-sidebar') ||
+    event.target.closest('main-menu__item')
+  ) {
     sidebar.classList.add('invisible');
     searchElementSidebar.classList.add('invisible');
     backgroundBlack.classList.add('invisible');
