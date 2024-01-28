@@ -40,3 +40,36 @@
 .invisible {
   display: none;
 }
+
+.sidebar-left {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0px;
+  width: 500px;
+  height: 100vh;
+  z-index: 15;
+  opacity: 1;
+  background-color: var(--background-primary);
+  transition: all 0.5s;
+  animation: show-left-window 0.5s linear;
+}
+
+.sidebar-left--active {
+  display: flex;
+  justify-content: flex-end;
+}
+
+@keyframes show-left-window {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-300px);
+    transform: translateX(-300px);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}

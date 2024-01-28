@@ -21,10 +21,14 @@
   <body>
     <div class="main">
       <nav class="main-menu invisible">
-        <div class="main-menu__item" id="home-button">
-          <i class="fa-solid fa-house"></i>
+        <div
+          data-category="close-sidebar"
+          class="main-menu__item"
+          id="home-button"
+        >
+          <i data-category="close-sidebar" class="fa-solid fa-house"></i>
         </div>
-        <div class="main-menu__item">
+        <div class="main-menu__item" id="search-button">
           <i class="fa-solid fa-magnifying-glass"></i>
         </div>
         <div class="main-menu__item">
@@ -34,7 +38,13 @@
           <i class="fa-solid fa-gear"></i>
         </div>
       </nav>
-      <aside class="search-element invisible"></aside>
+      <aside class="sidebar-left">
+        <!-- PRIVREMENO -->
+        <div class="search-elements">
+          <input type="text" class="search-input" />
+        </div>
+        <!-- PRIVREMENO -->
+      </aside>
       <div class="periodic-table invisible">
         <div class="group-blocks"></div>
       </div>
@@ -43,6 +53,6 @@
       </div>
       <aside class="sidebar invisible"></aside>
     </div>
-    <div class="background-black invisible close-sidebar"></div>
+    <div data-category="close-sidebar" class="background-black invisible"></div>
   </body>
 </html>

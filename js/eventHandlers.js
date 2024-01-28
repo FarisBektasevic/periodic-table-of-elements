@@ -4,22 +4,29 @@ import { groupBlockColors } from './config.js';
 
 const sidebar = document.querySelector('.sidebar');
 const backgroundBlack = document.querySelector('.background-black');
-const searchElementSidebar = document.querySelector('.search-element');
+const sidebarLeft = document.querySelector('.sidebar-left');
 
+const searchElementsDiv = document.querySelector('.search-elements');
+
+// shows left sidebar with search element functionallyty
 export const showSearchElementHandler = event => {
   const button = event.target.closest('.main-menu__item');
   if (!button) return;
 
-  if (button.id === 'home-button') {
-    searchElementSidebar.classList.add('invisible');
-    backgroundBlack.classList.add('invisible');
-    sidebar.classList.add('invisible');
-    return;
+  closeSidebarHandler(event);
+
+  if (button.id === 'home-button') return;
+
+  if (button.id === 'search-button') {
+    sidebarLeft.classList.add('sidebar-left--active');
+    searchElementsDiv.classList.add('search-elements--active');
+  } else {
+    searchElementsDiv.classList.remove('search-elements--active');
   }
 
   sidebar.classList.add('invisible');
 
-  searchElementSidebar.classList.remove('invisible');
+  sidebarLeft.classList.add('sidebar-left--active');
   backgroundBlack.classList.remove('invisible');
 };
 
@@ -42,13 +49,13 @@ export const showSidebarHandler = event => {
 
 // closing sidebar
 export const closeSidebarHandler = event => {
-  if (
-    event.target.closest('.close-sidebar') ||
-    event.target.closest('main-menu__item')
-  ) {
+  if (event.target.getAttribute('data-category') === 'close-sidebar') {
+    sidebarLeft.classList.add('invisible');
     sidebar.classList.add('invisible');
-    searchElementSidebar.classList.add('invisible');
     backgroundBlack.classList.add('invisible');
+
+    sidebarLeft.classList.remove('sidebar-left--active');
+    searchElementsDiv.classList.remove('search-elements--active');
   }
 };
 
