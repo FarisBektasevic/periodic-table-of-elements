@@ -1,4 +1,5 @@
 import { state } from './model.js';
+import { generateReadElementMarkup } from './readElementView.js';
 import { renderElementsMarkup } from './searchElementsView.js';
 import { groupBlockColors } from './config.js';
 
