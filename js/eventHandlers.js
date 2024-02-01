@@ -1,5 +1,5 @@
 import { state } from './model.js';
-import { generateReadElementMarkup } from './readElementView.js';
+import { renderElementsMarkup } from './searchElementsView.js';
 import { groupBlockColors } from './config.js';
 
 const sidebar = document.querySelector('.sidebar');
@@ -7,6 +7,9 @@ const backgroundBlack = document.querySelector('.background-black');
 const sidebarLeft = document.querySelector('.sidebar-left');
 
 const searchElementsDiv = document.querySelector('.search-elements');
+const searchElementsResults = document.querySelector(
+  '.search-elements__results'
+);
 
 // shows left sidebar with search element functionallyty
 export const showSearchElementHandler = event => {
@@ -24,6 +27,7 @@ export const showSearchElementHandler = event => {
     searchElementsDiv.classList.remove('search-elements--active');
   }
 
+  renderElementsMarkup(searchElementsResults, state.elements);
   sidebar.classList.add('invisible');
 
   sidebarLeft.classList.add('sidebar-left--active');
