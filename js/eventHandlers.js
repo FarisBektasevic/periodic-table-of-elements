@@ -22,14 +22,14 @@ export const showSearchElementHandler = event => {
   if (button.id === 'home-button') return;
 
   if (button.id === 'search-button') {
+    renderElementsMarkup(searchElementsResults, state.elements);
+    sidebar.classList.add('invisible');
+
     sidebarLeft.classList.add('sidebar-left--active');
     searchElementsDiv.classList.add('search-elements--active');
   } else {
     searchElementsDiv.classList.remove('search-elements--active');
   }
-
-  renderElementsMarkup(searchElementsResults, state.elements);
-  sidebar.classList.add('invisible');
 
   sidebarLeft.classList.add('sidebar-left--active');
   backgroundBlack.classList.remove('invisible');
