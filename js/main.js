@@ -62,8 +62,3 @@ body.addEventListener('click', closeSidebarHandler);
 sidebar.addEventListener('click', navigateElementsInSidebar);
 
 main.addEventListener('click', showSearchElementHandler);
-
-body.addEventListener('click', event => {
-  console.log(event.target);
-  console.log(event.target.getAttribute('data-category') === 'close-sidebar');
-});

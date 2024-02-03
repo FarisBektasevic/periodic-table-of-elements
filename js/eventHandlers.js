@@ -38,6 +38,7 @@ export const showSearchElementHandler = event => {
 // shows sidebar when specific element is clicked
 export const showSidebarHandler = event => {
   const card = event.target.closest('.periodic-table__element');
+
   if (!card) return;
 
   backgroundBlack.classList.remove('invisible');

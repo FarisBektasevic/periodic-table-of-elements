@@ -16,5 +16,5 @@ const generateElementMarkup = element => {
 };
 
 export const renderElementsMarkup = (parentElement, elements) => {
-  parentElement.innerHTML += elements.map(generateElementMarkup).join('');
+  parentElement.innerHTML = elements.map(generateElementMarkup).join('');
 };

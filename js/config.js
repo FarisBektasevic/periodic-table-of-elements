@@ -2,7 +2,7 @@ export const url = 'https://neelpatel05.pythonanywhere.com';
 export const wikipediaURL = 'http://en.wikipedia.org/wiki/';
 
 export const groupBlockColors = {
-  nonmetal: '#F2F7A1',
+  nonmetal: '#E8C872',
   'noble gas': '#662E9B',
   'alkali metal': '#CE2D4F',
   'alkaline earth metal': '#20A4F3',
