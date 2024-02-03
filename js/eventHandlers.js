@@ -37,9 +37,13 @@ export const showSearchElementHandler = event => {
 
 // shows sidebar when specific element is clicked
 export const showSidebarHandler = event => {
-  const card = event.target.closest('.periodic-table__element');
+  // const card = event.target.closest('.periodic-table__element');
+  const card = event.target.closest('[data-element]');
+  console.log(card);
 
   if (!card) return;
+
+  sidebarLeft.classList.remove('sidebar-left--active');
 
   backgroundBlack.classList.remove('invisible');
   sidebar.classList.remove('invisible');

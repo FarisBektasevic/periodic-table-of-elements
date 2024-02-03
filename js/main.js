@@ -53,7 +53,7 @@ controllPeriodicTableView();
 main.addEventListener('click', markGroupBlocksHandler);
 
 //show sidebar
-main.addEventListener('click', showSidebarHandler);
+body.addEventListener('click', showSidebarHandler);
 
 // hide sidebar
 body.addEventListener('click', closeSidebarHandler);

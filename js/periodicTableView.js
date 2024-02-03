@@ -4,7 +4,7 @@ const generateElementCardMarkup = element => {
   const { groupBlock, symbol, xpos, ypos, atomicNumber, name } = element;
 
   return `
-    <div data-category="${groupBlock}" class="periodic-table__element" id="${symbol}" style="grid-column:${
+    <div data-element="yes" data-category="${groupBlock}" class="periodic-table__element" id="${symbol}" style="grid-column:${
     xpos + 1
   }; grid-row:${ypos + 1}; border-color:${groupBlockColors[groupBlock]}">
       <span>${atomicNumber}</span>
