@@ -62,3 +62,16 @@ body.addEventListener('click', closeSidebarHandler);
 sidebar.addEventListener('click', navigateElementsInSidebar);
 
 main.addEventListener('click', showSearchElementHandler);
+
+const search = document.querySelector('.search-input');
+
+search.addEventListener('keydown', event => {
+  const elements = [...state.elements];
+
+  const currentInputText = (search.value + event.key).toLowerCase();
+
+  const searchResults = elements.filter(el =>
+    el.name.toLowerCase().includes(currentInputText)
+  );
+  console.log(searchResults);
+});

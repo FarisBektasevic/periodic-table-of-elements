@@ -11,6 +11,28 @@ const searchElementsDiv = document.querySelector('.search-elements');
 const searchElementsResults = document.querySelector(
   '.search-elements__results'
 );
+const searchInput = document.querySelector('.search-input');
+
+let searchResults = [...state.elements];
+
+searchInput.addEventListener('keydown', event => {
+  const elements = [...state.elements];
+  const currentInputText = (searchInput.value + event.key).toLowerCase();
+  searchResults = [
+    ...elements.filter(el => el.name.toLowerCase().includes(currentInputText)),
+  ];
+  renderElementsMarkup(searchElementsResults, searchResults);
+});
+
+// export const getSearchResults = event => {
+//   const elements = [...state.elements];
+
+//   const currentInputText = (searchInput.value + event.key).toLowerCase();
+
+//   return elements.filter(el =>
+//     el.name.toLowerCase().includes(currentInputText)
+//   );
+// };
 
 // shows left sidebar with search element functionallyty
 export const showSearchElementHandler = event => {
@@ -22,6 +44,7 @@ export const showSearchElementHandler = event => {
   if (button.id === 'home-button') return;
 
   if (button.id === 'search-button') {
+    console.log(searchResults);
     renderElementsMarkup(searchElementsResults, state.elements);
     sidebar.classList.add('invisible');
 
@@ -39,12 +62,10 @@ export const showSearchElementHandler = event => {
 export const showSidebarHandler = event => {
   // const card = event.target.closest('.periodic-table__element');
   const card = event.target.closest('[data-element]');
-  console.log(card);
 
   if (!card) return;
 
   sidebarLeft.classList.remove('sidebar-left--active');
-
   backgroundBlack.classList.remove('invisible');
   sidebar.classList.remove('invisible');
   sidebar.classList.add('sidebar--active');
