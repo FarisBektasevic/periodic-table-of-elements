@@ -11,40 +11,43 @@ const searchElementsDiv = document.querySelector('.search-elements');
 const searchElementsResults = document.querySelector(
   '.search-elements__results'
 );
-const searchInput = document.querySelector('.search-input');
 
-let searchResults = [...state.elements];
+// let searchResults = [...state.elements];
 
-searchInput.addEventListener('keydown', event => {
-  const elements = [...state.elements];
+// searchInput.addEventListener('keydown', event => {
+//
+//   const currentInputText = (searchInput.value + event.key).toLowerCase();
+//   searchResults = [
+//     ...elements.filter(el => el.name.toLowerCase().includes(currentInputText)),
+//   ];
+//   renderElementsMarkup(searchElementsResults, searchResults);
+// });
+
+export const searchForElementHandler = (event, searchResults) => {
+  const searchInput = event.target.closest('.search-input');
+  if (!searchInput) return;
+
   const currentInputText = (searchInput.value + event.key).toLowerCase();
+
   searchResults = [
-    ...elements.filter(el => el.name.toLowerCase().includes(currentInputText)),
+    ...searchResults.filter(el =>
+      el.name.toLowerCase().includes(currentInputText)
+    ),
   ];
   renderElementsMarkup(searchElementsResults, searchResults);
-});
-
-// export const getSearchResults = event => {
-//   const elements = [...state.elements];
-
-//   const currentInputText = (searchInput.value + event.key).toLowerCase();
-
-//   return elements.filter(el =>
-//     el.name.toLowerCase().includes(currentInputText)
-//   );
-// };
+};
 
 // shows left sidebar with search element functionallyty
 export const showSearchElementHandler = event => {
   const button = event.target.closest('.main-menu__item');
   if (!button) return;
+  document.querySelector('.search-input').value = '';
 
   closeSidebarHandler(event);
 
   if (button.id === 'home-button') return;
 
   if (button.id === 'search-button') {
-    console.log(searchResults);
     renderElementsMarkup(searchElementsResults, state.elements);
     sidebar.classList.add('invisible');
 

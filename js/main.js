@@ -13,6 +13,7 @@ import {
   navigateElementsInSidebar,
   showSidebarHandler,
   showSearchElementHandler,
+  searchForElementHandler,
 } from './eventHandlers.js';
 
 const body = document.querySelector('body');
@@ -22,6 +23,8 @@ const spinner = document.querySelector('.rotate');
 const groupBlocksList = document.querySelector('.group-blocks');
 const sidebar = document.querySelector('.sidebar');
 const menuNavigation = document.querySelector('.main-menu');
+
+const searchInput = document.querySelector('.search-input');
 
 // fetch data and adding positions (xpos and ypos for every element)
 const controllPeriodicTableData = async () => {
@@ -45,6 +48,7 @@ const controllPeriodicTableView = () => {
 
 await controllPeriodicTableData();
 controllPeriodicTableView();
+console.log(state.elements);
 
 // EVENT LISTENERS
 
@@ -63,15 +67,6 @@ sidebar.addEventListener('click', navigateElementsInSidebar);
 
 main.addEventListener('click', showSearchElementHandler);
 
-const search = document.querySelector('.search-input');
-
-search.addEventListener('keydown', event => {
-  const elements = [...state.elements];
-
-  const currentInputText = (search.value + event.key).toLowerCase();
-
-  const searchResults = elements.filter(el =>
-    el.name.toLowerCase().includes(currentInputText)
-  );
-  console.log(searchResults);
+main.addEventListener('keydown', event => {
+  searchForElementHandler(event, state.elements);
 });
