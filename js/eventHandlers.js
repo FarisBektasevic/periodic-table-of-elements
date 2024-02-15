@@ -27,7 +27,20 @@ export const searchForElementHandler = (event, searchResults) => {
   const searchInput = event.target.closest('.search-input');
   if (!searchInput) return;
 
-  const currentInputText = (searchInput.value + event.key).toLowerCase();
+  const previousInputText = searchInput.value;
+
+  if (event.key === 'Backspace') {
+    searchInput.value = '';
+    renderElementsMarkup(searchElementsResults, searchResults);
+    return;
+  }
+
+  if (event.key.length > 1) {
+    // renderElementsMarkup(searchElementsResults, searchResults);
+    return;
+  }
+
+  let currentInputText = (searchInput.value + event.key).toLowerCase();
 
   searchResults = [
     ...searchResults.filter(el =>
