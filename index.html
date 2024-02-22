@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="/css/sidebar-right.css" />
     <link rel="stylesheet" href="/css/sidebar-left.css" />
     <link rel="stylesheet" href="/css/search-elements.css" />
+    <link rel="stylesheet" href="/css/settings.css" />
     <script type="module" src="/js/main.js"></script>
   </head>
   <body>
@@ -31,10 +32,7 @@
         <div class="main-menu__item" id="search-button">
           <i class="fa-solid fa-magnifying-glass"></i>
         </div>
-        <div class="main-menu__item">
-          <i class="fa-solid fa-list-ul"></i>
-        </div>
-        <div class="main-menu__item">
+        <div class="main-menu__item" id="settings-button">
           <i class="fa-solid fa-gear"></i>
         </div>
       </nav>
@@ -52,6 +50,25 @@
           <div class="search-elements__results"></div>
         </div>
         <!-- PRIVREMENO -->
+
+        <!-----  SETTINGS  ------>
+        <div class="settings">
+          <header class="settings__header">
+            <h3>Settings</h3>
+          </header>
+          <div class="settings__select-property">
+            <h4>
+              <i class="fa-regular fa-circle-dot" style="color: #ce2d4f"></i
+              >Select property:
+            </h4>
+            <p><i class="fa-solid fa-circle"></i> Name</p>
+            <p><i class="fa-solid fa-circle"></i> Electrons</p>
+            <p><i class="fa-solid fa-circle"></i> Year</p>
+            <p><i class="fa-solid fa-circle"></i> Atomic weight</p>
+            <p><i class="fa-solid fa-circle"></i> Standard state</p>
+          </div>
+        </div>
+        <!-- /SETTINGS  -->
       </aside>
       <div class="periodic-table invisible">
         <div class="group-blocks"></div>

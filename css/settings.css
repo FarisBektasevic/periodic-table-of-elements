@@ -1,0 +1,36 @@
+.settings {
+  display: none;
+  height: 100%;
+  width: 23rem;
+  padding-left: 2rem;
+  padding-bottom: 20px;
+  transition: all 0.5s;
+  animation: show-left-window 0.6s ease-in;
+}
+
+.settings--active {
+  display: flex;
+  flex-direction: column;
+}
+
+.settings__header {
+  font-size: 1.5rem;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+}
+
+.settings__select-property {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-left: 1rem;
+}
+
+.settings__select-property h4 {
+  font-size: 1rem;
+}
+
+.settings__select-property i {
+  margin-right: 10px;
+}

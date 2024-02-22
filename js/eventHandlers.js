@@ -12,6 +12,9 @@ const searchElementsResults = document.querySelector(
   '.search-elements__results'
 );
 
+const settingsDiv = document.querySelector('.settings');
+console.log(settingsDiv);
+
 // let searchResults = [...state.elements];
 
 // searchInput.addEventListener('keydown', event => {
@@ -27,7 +30,7 @@ export const searchForElementHandler = (event, searchResults) => {
   const searchInput = event.target.closest('.search-input');
   if (!searchInput) return;
 
-  const previousInputText = searchInput.value;
+  // const previousInputText = searchInput.value;
 
   if (event.key === 'Backspace') {
     searchInput.value = '';
@@ -56,6 +59,8 @@ export const showSearchElementHandler = event => {
   if (!button) return;
   document.querySelector('.search-input').value = '';
 
+  console.log(button.id);
+
   closeSidebarHandler(event);
 
   if (button.id === 'home-button') return;
@@ -68,6 +73,14 @@ export const showSearchElementHandler = event => {
     searchElementsDiv.classList.add('search-elements--active');
   } else {
     searchElementsDiv.classList.remove('search-elements--active');
+  }
+
+  if (button.id === 'settings-button') {
+    sidebar.classList.add('invisible');
+    sidebarLeft.classList.add('sidebar-left--active');
+    settingsDiv.classList.add('settings--active');
+  } else {
+    settingsDiv.classList.remove('settings--active');
   }
 
   sidebarLeft.classList.add('sidebar-left--active');
@@ -103,6 +116,7 @@ export const closeSidebarHandler = event => {
 
     sidebarLeft.classList.remove('sidebar-left--active');
     searchElementsDiv.classList.remove('search-elements--active');
+    // settingsDiv.classList.remove('settings--active');
   }
 };
 
