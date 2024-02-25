@@ -12,6 +12,8 @@ This is a web application that serves as an interactive periodic table of elemen
 **Element Information:** Detailed information about each element, including its name, symbol, atomic number, and atomic weight. <br/>
 **Color-coded Categories:**: Elements are color-coded by category (e.g., metals, non-metals, noble gases) for easy identification. <br/>
 **Responsive Design**: The website is responsive and works well on various devices and screen sizes. <br/>
+**Search Functionality**: Users can search for specific elements by name, symbol, or atomic number. <br/>
+**Customizable Display**: Users can select which property they want to display on the periodic table, allowing for a personalized viewing experience. <br/>
 
 ### Technologies used
 
