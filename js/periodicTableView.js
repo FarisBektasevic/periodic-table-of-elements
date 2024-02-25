@@ -1,7 +1,7 @@
-import { groupBlockColors } from './config.js';
+import { groupBlockColors, currentProperty } from './config.js';
 
 const generateElementCardMarkup = element => {
-  const { groupBlock, symbol, xpos, ypos, atomicNumber, name } = element;
+  const { groupBlock, symbol, xpos, ypos, atomicNumber } = element;
 
   return `
     <div data-element="yes" data-category="${groupBlock}" class="periodic-table__element" id="${symbol}" style="grid-column:${
@@ -9,7 +9,9 @@ const generateElementCardMarkup = element => {
   }; grid-row:${ypos + 1}; border-color:${groupBlockColors[groupBlock]}">
       <span>${atomicNumber}</span>
       <span class="periodic-table__element__symbol">${symbol}</span>
-      <p class="periodic-table__element__p">${name}</p>
+      <p class="periodic-table__element__p">${
+        element[currentProperty[0]] || 'no data'
+      }</p>
     </div>`;
 };
 

@@ -1,7 +1,7 @@
 import { state } from './model.js';
 import { generateReadElementMarkup } from './readElementView.js';
 import { renderElementsMarkup } from './searchElementsView.js';
-import { groupBlockColors } from './config.js';
+import { groupBlockColors, currentProperty } from './config.js';
 
 const sidebar = document.querySelector('.sidebar');
 const backgroundBlack = document.querySelector('.background-black');
@@ -12,19 +12,33 @@ const searchElementsResults = document.querySelector(
   '.search-elements__results'
 );
 
+const selectProperties = document.querySelectorAll(
+  '.settings__select-property__property'
+);
+
 const settingsDiv = document.querySelector('.settings');
-console.log(settingsDiv);
 
-// let searchResults = [...state.elements];
+export const selectPropertyHandler = event => {
+  const selectedProperty = event.target.closest(
+    '.settings__select-property__property'
+  );
 
-// searchInput.addEventListener('keydown', event => {
-//
-//   const currentInputText = (searchInput.value + event.key).toLowerCase();
-//   searchResults = [
-//     ...elements.filter(el => el.name.toLowerCase().includes(currentInputText)),
-//   ];
-//   renderElementsMarkup(searchElementsResults, searchResults);
-// });
+  if (!selectedProperty) return;
+
+  selectProperties.forEach(property => {
+    if (property === selectedProperty) {
+      property.classList.add('settings__select-property__property--active');
+      currentProperty[0] = selectedProperty.id;
+    } else {
+      property.classList.remove('settings__select-property__property--active');
+    }
+  });
+
+  sidebarLeft.classList.remove('sidebar-left--active');
+  backgroundBlack.classList.add('invisible');
+
+  return true;
+};
 
 export const searchForElementHandler = (event, searchResults) => {
   const searchInput = event.target.closest('.search-input');
@@ -58,8 +72,6 @@ export const showSearchElementHandler = event => {
   const button = event.target.closest('.main-menu__item');
   if (!button) return;
   document.querySelector('.search-input').value = '';
-
-  console.log(button.id);
 
   closeSidebarHandler(event);
 

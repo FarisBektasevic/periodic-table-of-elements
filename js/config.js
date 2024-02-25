@@ -16,6 +16,8 @@ export const groupBlockColors = {
   'all items': '#fff',
 };
 
+export const currentProperty = ['name'];
+
 export const elementProperties = element => {
   const {
     name,

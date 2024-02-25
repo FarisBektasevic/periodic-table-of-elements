@@ -6,7 +6,7 @@ import {
   renderPeriodicTable,
 } from './periodicTableView.js';
 import { getData } from './helper.js';
-import { groupBlockColors } from './config.js';
+import { groupBlockColors, currentProperty } from './config.js';
 import {
   closeSidebarHandler,
   markGroupBlocksHandler,
@@ -14,6 +14,7 @@ import {
   showSidebarHandler,
   showSearchElementHandler,
   searchForElementHandler,
+  selectPropertyHandler,
 } from './eventHandlers.js';
 
 const body = document.querySelector('body');
@@ -23,8 +24,6 @@ const spinner = document.querySelector('.rotate');
 const groupBlocksList = document.querySelector('.group-blocks');
 const sidebar = document.querySelector('.sidebar');
 const menuNavigation = document.querySelector('.main-menu');
-
-const searchInput = document.querySelector('.search-input');
 
 // fetch data and adding positions (xpos and ypos for every element)
 const controllPeriodicTableData = async () => {
@@ -48,7 +47,6 @@ const controllPeriodicTableView = () => {
 
 await controllPeriodicTableData();
 controllPeriodicTableView();
-console.log(state.elements);
 
 // EVENT LISTENERS
 
@@ -69,4 +67,16 @@ main.addEventListener('click', showSearchElementHandler);
 
 main.addEventListener('keydown', event => {
   searchForElementHandler(event, state.elements);
+});
+
+main.addEventListener('click', event => {
+  if (selectPropertyHandler(event)) {
+    const elementsToRemove = periodicTable.querySelectorAll(
+      '[data-element="yes"]'
+    );
+    elementsToRemove.forEach(element => {
+      element.parentNode.removeChild(element);
+    });
+    renderPeriodicTable(periodicTable, state.elements);
+  }
 });

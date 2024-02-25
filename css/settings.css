@@ -19,7 +19,7 @@
   display: flex;
   letter-spacing: 2px;
   align-items: center;
-  margin-bottom: 1rem;
+  margin: 1rem 0;
 }
 
 .settings__select-property {
@@ -44,6 +44,10 @@
   transition: all 0.3s ease;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.settings__select-property__property--active {
+  background-color: var(--background-secondary);
 }
 
 .settings__select-property__property:hover {
