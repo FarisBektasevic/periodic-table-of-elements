@@ -5,8 +5,9 @@
   align-items: center;
   z-index: 20;
   background-color: var(--background-secondary);
-  position: fixed;
+  /* position: fixed; */
   /* padding-top: 10px; */
+  margin-left: 2rem;
   padding: 10px 0;
   height: 210px;
   width: 65px;
@@ -74,5 +75,13 @@
     opacity: 1;
     -webkit-transform: translateX(0);
     transform: translateX(0);
+  }
+}
+
+@media screen and (width < 1200px) {
+  .main-menu {
+    height: 200px;
+    width: 50px;
+    left: 1rem;
   }
 }

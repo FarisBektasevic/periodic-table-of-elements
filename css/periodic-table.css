@@ -18,6 +18,7 @@
 
 body {
   font-family: 'Roboto', sans-serif;
+  display: flex;
   height: 100vh;
   width: 100vw;
   font-size: 0.6rem;
@@ -59,7 +60,7 @@ body {
 /* ------ PERIODIC TABLE  ----------*/
 
 .periodic-table {
-  height: 100%;
+  height: fit-content;
   display: grid;
   grid-template-columns: repeat(19, 64px);
   grid-template-rows: repeat(11, 60px);
@@ -159,29 +160,34 @@ body {
   transition: 0.3s;
 }
 
-/* @media screen and (width < 1200px) {
+@media screen and (width < 1200px) {
   body {
-    font-size: 0.4rem;
+    font-size: 0.5rem;
   }
   .periodic-table {
     font-size: 0.5rem;
-    grid-template-columns: repeat(19, 45px);
-    grid-template-rows: repeat(11, 40px);
+    grid-template-columns: repeat(19, 50px);
+    grid-template-rows: repeat(11, 45px);
+    position: relative;
   }
 
-  .element-card__symbol {
-    font-size: 0.7rem;
+  .periodic-table__element__symbol {
+    font-size: 1rem;
     padding-top: 0;
     padding-bottom: 0;
   }
 
-  .period-label,
-  .group-label {
-    font-size: 0.7rem;
+  /* .periodic-table__element__p {
+    overflow: none;
+  } */
+
+  .periodic-table__group,
+  .periodic-table__period {
+    font-size: 0.8rem;
   }
 
   .group-blocks {
-    font-size: 0.6rem;
+    font-size: 0.7rem;
     height: 100px;
   }
 
@@ -200,4 +206,4 @@ body {
   .group-blocks {
     display: none;
   }
-} */
+}
