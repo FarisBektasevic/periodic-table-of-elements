@@ -5,13 +5,12 @@
   align-items: center;
   z-index: 20;
   background-color: var(--background-secondary);
-  /* position: fixed; */
+  position: fixed;
+  left: 1rem;
   /* padding-top: 10px; */
-  margin-left: 2rem;
   padding: 10px 0;
   height: 210px;
   width: 65px;
-  left: 3rem;
   border-radius: 20px;
   -webkit-tap-highlight-color: transparent;
 }
@@ -78,10 +77,28 @@
   }
 }
 
+@media screen and (width < 1400px) {
+  .main-menu {
+    height: 180px;
+    width: 50px;
+    left: 0.8rem;
+  }
+
+  .main-menu__item {
+    font-size: 1.1rem;
+  }
+}
+
 @media screen and (width < 1200px) {
   .main-menu {
     height: 200px;
-    width: 50px;
+    width: 55px;
     left: 1rem;
+  }
+
+  .main-menu__item {
+    font-size: 1rem;
+    width: 40px;
+    height: 40px;
   }
 }

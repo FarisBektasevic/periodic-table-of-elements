@@ -19,6 +19,8 @@
 body {
   font-family: 'Roboto', sans-serif;
   display: flex;
+  justify-content: center;
+  align-items: center;
   height: 100vh;
   width: 100vw;
   font-size: 0.6rem;
@@ -60,7 +62,7 @@ body {
 /* ------ PERIODIC TABLE  ----------*/
 
 .periodic-table {
-  height: fit-content;
+  height: 100%;
   display: grid;
   grid-template-columns: repeat(19, 64px);
   grid-template-rows: repeat(11, 60px);
@@ -141,7 +143,7 @@ body {
 }
 
 .group-blocks__list-item {
-  margin: 0 60px 12px 0;
+  margin: 0 40px 12px 0;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -160,6 +162,14 @@ body {
   transition: 0.3s;
 }
 
+@media screen and (width < 1400px) {
+  .periodic-table {
+    font-size: 0.5rem;
+    grid-template-columns: repeat(19, 60px);
+    grid-template-rows: repeat(11, 56px);
+  }
+}
+
 @media screen and (width < 1200px) {
   body {
     font-size: 0.5rem;
@@ -168,7 +178,6 @@ body {
     font-size: 0.5rem;
     grid-template-columns: repeat(19, 50px);
     grid-template-rows: repeat(11, 45px);
-    position: relative;
   }
 
   .periodic-table__element__symbol {
