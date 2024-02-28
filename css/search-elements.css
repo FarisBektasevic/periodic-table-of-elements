@@ -120,3 +120,10 @@ input[type='search']::-webkit-search-results-decoration {
 .search-elements__results__element__properties p:last-of-type {
   font-size: 0.8rem;
 }
+
+@media screen and (width < 1200px) {
+  .search-elements {
+    width: 20rem;
+    /* padding-bottom: 20px; */
+  }
+}

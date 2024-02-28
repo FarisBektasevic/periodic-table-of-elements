@@ -63,3 +63,31 @@
 .settings__select-property i {
   margin-right: 10px;
 }
+
+@media screen and (width < 1200px) {
+  .settings {
+    width: 20rem;
+    padding-left: 1rem;
+    padding-bottom: 10px;
+  }
+
+  .settings__header {
+    font-size: 1.5rem;
+    height: 2rem;
+    /* margin: 0.6rem 0; */
+  }
+
+  .settings__select-property__header {
+    font-size: 1rem;
+    height: 2.5rem;
+    padding-left: 0.4rem;
+
+    margin-bottom: 0.4rem;
+  }
+
+  .settings__select-property__property {
+    font-size: 0.8rem;
+    height: 2.5rem;
+    padding-left: 1.2rem;
+  }
+}

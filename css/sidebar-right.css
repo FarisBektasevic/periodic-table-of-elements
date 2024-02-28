@@ -230,3 +230,9 @@
 .sidebar__nav--left:hover {
   background-color: var(--background-secondary);
 }
+
+@media screen and (width < 1200px) {
+  .sidebar--active {
+    width: 450px;
+  }
+}

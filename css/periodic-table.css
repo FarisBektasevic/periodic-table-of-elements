@@ -163,16 +163,26 @@ body {
 }
 
 @media screen and (width < 1400px) {
+  body {
+    padding-top: 2rem;
+  }
+
   .periodic-table {
     font-size: 0.5rem;
-    grid-template-columns: repeat(19, 60px);
-    grid-template-rows: repeat(11, 56px);
+    grid-template-columns: repeat(19, 58px);
+    grid-template-rows: repeat(11, 54px);
+  }
+
+  .group-blocks__list-item {
+    margin-right: 35px;
+    margin-bottom: 15px;
   }
 }
 
 @media screen and (width < 1200px) {
   body {
     font-size: 0.5rem;
+    padding-top: 3rem;
   }
   .periodic-table {
     font-size: 0.5rem;
@@ -181,9 +191,13 @@ body {
   }
 
   .periodic-table__element__symbol {
-    font-size: 1rem;
+    font-size: 0.9rem;
     padding-top: 0;
     padding-bottom: 0;
+  }
+
+  .periodic-table__element {
+    padding: 0;
   }
 
   /* .periodic-table__element__p {
@@ -201,13 +215,21 @@ body {
   }
 
   .group-blocks__list-item {
-    margin-right: 40px;
+    margin-right: 35px;
     margin-bottom: 10px;
   }
 
   .group-blocks__list-item__btn {
     width: 12px;
     height: 12px;
+  }
+}
+
+@media screen and (width < 1080px) {
+  .periodic-table {
+    font-size: 0.5rem;
+    grid-template-columns: repeat(19, 48px);
+    grid-template-rows: repeat(11, 43px);
   }
 }
 
